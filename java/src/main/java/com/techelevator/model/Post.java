@@ -1,21 +1,23 @@
 package com.techelevator.model;
-
 import java.util.Date;
 
-public class Photo {
+public class Post {
 
     private int photoId;
     private int userId;
-    private String caption;
+    private  String caption;
+    private String imgURL;
     private Date timestamp;
 
-    public Photo() {}
+    public Post() {
+    }
 
-    public Photo (int photoId, int userId, String caption, Date timestamp) {
+    public Post(int photoId, int userId, String caption, String imgURL, Date timestamp) {
         this.photoId = photoId;
         this.userId = userId;
         this.caption = caption;
-        this.timestamp = new Date();
+        this.imgURL = imgURL;
+        this.timestamp = timestamp;
     }
 
     public int getId() {
@@ -42,6 +44,14 @@ public class Photo {
         this.caption = caption;
     }
 
+    public String getImgURL() {
+        return imgURL;
+    }
+
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
+    }
+
     public Date getTimestamp() {
         return timestamp;
     }
@@ -52,10 +62,11 @@ public class Photo {
 
     @Override
     public String toString() {
-        return "Photo{" +
+        return "Post{" +
                 "photoId=" + photoId +
                 ", userId=" + userId +
                 ", caption='" + caption + '\'' +
+                ", imgURL='" + imgURL + '\'' +
                 ", timestamp=" + timestamp +
                 '}';
     }
