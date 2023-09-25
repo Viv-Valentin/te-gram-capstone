@@ -11,12 +11,6 @@ public class Photo {
 
     public Photo() {}
 
-    public Photo (int photoId, int userId, String caption, Date timestamp) {
-        this.photoId= photoId;
-        this.userId = userId;
-        this.caption = caption;
-        this.timestamp = new Date();
-    }
     public int getPhotoId() {
         return photoId;
     }
@@ -49,6 +43,17 @@ public class Photo {
         this.timestamp = timestamp;
     }
 
+    public Photo (int photoId, int userId, String caption, Date timestamp) {
+
+        this.photoId= photoId;
+        this.userId = userId;
+        this.caption = caption;
+        this.timestamp = new Date();
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Photo{" +
@@ -58,4 +63,5 @@ public class Photo {
                 ", timestamp=" + timestamp +
                 '}';
     }
+
 }

@@ -1,7 +1,6 @@
 package com.techelevator.model;
 
 public class Like {
-
     private int likeId;
     private int userId;
     private int postId;

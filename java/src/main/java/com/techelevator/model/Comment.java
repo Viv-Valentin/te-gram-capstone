@@ -6,17 +6,18 @@ public class Comment {
     private int commentId;
     private int userId;
     private int postId;
-    private  String comment;
+    private String comment;
     private Date timestamp;
 
-    public Comment() {}
+    public Comment() {
+    }
 
     public Comment(int commentId, int userId, int postId, String comment, Date timestamp) {
         this.commentId = commentId;
         this.userId = userId;
         this.postId = postId;
         this.comment = comment;
-        this.timestamp = new Date();
+        this.timestamp = timestamp;
     }
 
     public int getCommentId() {
@@ -35,7 +36,9 @@ public class Comment {
         this.userId = userId;
     }
 
-    public int getPostId() {return postId;}
+    public int getPostId() {
+        return postId;
+    }
 
     public void setPostId(int postId) {
         this.postId = postId;
@@ -56,6 +59,7 @@ public class Comment {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+
     @Override
     public String toString() {
         return "Comment{" +
