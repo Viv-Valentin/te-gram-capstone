@@ -11,12 +11,12 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
-	CONSTRAINT PK_user PRIMARY KEY (user_id)
+	CONSTRAINT PK_user PRIMARY KEY (username)
 );
 
 CREATE TABLE posts (
 post_id SERIAL PRIMARY KEY,
-user_id INT FOREIGN KEY,
+username INT FOREIGN KEY,
 caption VARCHAR (255),
 image_url VARCHAR(100),
 created_at TIMESTAMP
@@ -24,13 +24,13 @@ created_at TIMESTAMP
 
 CREATE TABLE likes (
 like_id SERIAL PRIMARY KEY,
-user_id INT,
+username INT,
 post_id INT
 );
 
 CREATE TABLE comments (
 comment_id SERIAL PRIMARY KEY,
-user_id INT,
+username INT,
 post_id INT,
 comment VARCHAR (255),
 comment_created TIMESTAMP
@@ -38,8 +38,8 @@ comment_created TIMESTAMP
 
 CREATE TABLE follow(
 follow_id SERIAL PRIMARY KEY,
-follower_id INT,
-following_id INT
+follower_username INT,
+following_username INT
 );
 
 
