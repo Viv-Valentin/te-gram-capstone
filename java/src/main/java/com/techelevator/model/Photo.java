@@ -48,7 +48,7 @@ public class Photo {
         this.photoId= photoId;
         this.userId = userId;
         this.caption = caption;
-        this.timestamp = new Date();
+        this.timestamp = timestamp;
     }
 
 
