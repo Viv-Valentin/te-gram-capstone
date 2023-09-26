@@ -13,10 +13,6 @@
         <input type="text" id="email" v-model="user.email" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
-      </div>
-      <div class="form-input-group">
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
@@ -66,6 +62,14 @@ export default {
 </script>
 
 <style>
+#login {
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  position: absolute;
+  top: 0; bottom: 0; 
+  left: 0; right: 0;
+}
 
 .form-input-group, h1 {
   margin-bottom: 1rem;
@@ -79,17 +83,6 @@ export default {
 
 label {
   margin-right: 0.5rem;
-}
-
-#login {
-  padding-top: 200px;
-  background-size: cover;
-  position: absolute;
-  top: 200px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-image: url("../assets/LoginBackground.jpg");
 }
 
 #login button:hover {
@@ -107,10 +100,4 @@ label {
    font-family: serif;
 
 }
-
-div {
- text-align: center;
-
-}
-
 </style>

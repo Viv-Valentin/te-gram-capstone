@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <cloudinary-comp msg="Welcome to Your Vue.js App"/>
     <div id="nav">
+      <img src="assets/TEConnect.png" />
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
@@ -10,25 +9,10 @@
   </div>
 </template>
 
-<<<<<<< HEAD
-<style>
-
-body {
-background: url("assets/TEConnect.png") no-repeat;
-text-align: left;
-background-color: white;
-}
-
-</style>
-=======
 <script>
-import cloudinaryComp from './components/CloudinaryComp.vue'
 
 export default {
-  name: 'App',
-  components: {
-    cloudinaryComp
-  }
+  name: 'App'
 }
 </script>
 
@@ -41,5 +25,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+body {
+  background: url("assets/LoginBackground.jpg") #fff;
+  text-align: left;
+}
+
+div {
+ text-align: center;
+}
+
 </style>
->>>>>>> 3114c115d36ff2f66a34be5fe71412a02faefa1f
