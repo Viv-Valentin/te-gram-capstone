@@ -13,7 +13,8 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
-@RestController
+//@RestController
+@CrossOrigin
 @PreAuthorize("isAuthenticated()")
 public class AccountController {
 
