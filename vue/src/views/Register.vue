@@ -81,8 +81,43 @@ export default {
 <style scoped>
 .form-input-group {
   margin-bottom: 1rem;
+  color: #4D565E;
+  font-family: serif;
+  text-align: center;
+  width: 400px;
+  margin: 10px auto 30px;
+  border-radius: 15px;
 }
+
 label {
   margin-right: 0.5rem;
 }
+
+#register {
+  padding-top: 200px;
+  background-size: cover;
+  position: absolute;
+  top: 200px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url("../assets/LoginBackground.jpg");
+}
+
+#register button:hover {
+  background-color: #4D565E;
+  color: white;
+}
+
+#register button {
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: thin;
+  font-weight: bolder;
+  font-family: serif;
+
+}
+
 </style>

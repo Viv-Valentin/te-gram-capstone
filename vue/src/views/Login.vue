@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 
 .form-input-group, h1 {
   margin-bottom: 1rem;
@@ -85,7 +85,7 @@ label {
   padding-top: 200px;
   background-size: cover;
   position: absolute;
-  top: 95px;
+  top: 200px;
   right: 0px;
   bottom: 0px;
   left: 0px;
