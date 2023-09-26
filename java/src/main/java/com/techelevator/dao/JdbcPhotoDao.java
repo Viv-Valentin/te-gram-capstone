@@ -15,9 +15,9 @@ public class JdbcPhotoDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Photo> getPhoto(int username) {
+    public List<Photo> getPhotosByUsername(int username) {
         List<Photo> photoList = new ArrayList<>();
-        String sql = "SELECT image_url FROM posts WHERE username ILIKE ?;";
+        String sql = "SELECT image_url FROM posts WHERE username ILIKE ?;"; // don't fill in the blank for any serial things, Rockey will send screenshot
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()) {
