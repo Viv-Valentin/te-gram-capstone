@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-@RestController
+//@RestController
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
 public class AccountController {

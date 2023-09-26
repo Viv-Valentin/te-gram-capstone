@@ -7,6 +7,7 @@ public class JdbcPostDao implements PostDao {
 
     @Override
     public Post create(Post post) {
+//        String sql = "INSERT INTO posts (username, caption, image_url) VALUES ()";
         return null;
     }
 
