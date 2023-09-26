@@ -1,7 +1,5 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, posts, likes, comments, follow;
-
 CREATE TABLE users (
 	user_id SERIAL,
 	username VARCHAR(50) NOT NULL UNIQUE,

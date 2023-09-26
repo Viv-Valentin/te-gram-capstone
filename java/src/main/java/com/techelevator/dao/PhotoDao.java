@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface PhotoDao {
 
-    List<Photo> getPhotosByUsername(int username);
+    List<Photo> findPhotosById(int userId);
+    List<Photo> findFavoriteById(int userId);
 
 }
