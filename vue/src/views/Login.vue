@@ -1,12 +1,16 @@
 <template>
   <div id="login">
     <form @submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <div role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
+      </div>
+      <div class="form-input-group">
+        <label for="email">Email Address</label>
+        <input type="text" id="email" v-model="user.email" required autofocus />
       </div>
       <div class="form-input-group">
         <label for="username">Username</label>
@@ -16,7 +20,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
-      <button type="submit">Sign in</button>
+      <button type="submit">Login</button>
       <p>
       <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
     </form>
@@ -62,10 +66,51 @@ export default {
 </script>
 
 <style scoped>
-.form-input-group {
+
+.form-input-group, h1 {
   margin-bottom: 1rem;
+  color: #4D565E;
+  font-family: serif;
+  text-align: center;
+  width: 300px;
+  margin: 10px auto 30px;
+  border-radius: 15px;
 }
+
 label {
   margin-right: 0.5rem;
 }
+
+#login {
+  padding-top: 200px;
+  background-size: cover;
+  position: absolute;
+  top: 95px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url("../assets/LoginBackground.jpg");
+}
+
+#login button:hover {
+  background-color: #4D565E;
+  color: white;
+}
+
+#login button {
+  width: 80px;
+  height: 30px;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  font-weight: bold;
+   font-family: serif;
+
+}
+
+div {
+ text-align: center;
+
+}
+
 </style>
