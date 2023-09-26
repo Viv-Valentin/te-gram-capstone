@@ -17,8 +17,8 @@ INSERT INTO likes (username, post_id) VALUES ('maryam', 2002);
 INSERT INTO likes (username, post_id) VALUES ('kay', 2003);
 INSERT INTO likes (username, post_id) VALUES ('nix', 2004);
 
-INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv' 2002, 'so cute!', '09/25/2023');
-INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam' 2001, 'beauty!', '09/26/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv', 2002, 'so cute!', '09/25/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2001, 'beauty!', '09/26/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2004, 'pretty!', '09/23/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2003, 'love it!', '03/24/2023');
 
