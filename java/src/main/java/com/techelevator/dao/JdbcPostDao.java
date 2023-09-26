@@ -1,10 +1,10 @@
 package com.techelevator.dao;
-
 import com.techelevator.model.Post;
-
 import java.util.List;
 
+
 public class JdbcPostDao implements PostDao {
+
     @Override
     public Post create(Post post) {
         return null;
@@ -19,4 +19,5 @@ public class JdbcPostDao implements PostDao {
     public Post findPostById(int postId) {
         return null;
     }
+
 }

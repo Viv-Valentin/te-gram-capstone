@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.Date;
+
 public class Follow {
 
     private int followId;
@@ -8,12 +10,15 @@ public class Follow {
 
     private int followeeId;
 
+    private Date timestamp;
+
     public Follow() {}
 
-    public Follow(int followId, int followerId, int followeeId) {
+    public Follow(int followId, int followerId, int followeeId, Date timestamp) {
         this.followId = followId;
         this.followerId = followerId;
         this.followeeId = followeeId;
+        this.timestamp = timestamp;
     }
 
 
@@ -40,6 +45,10 @@ public class Follow {
     public void setFolloweeId(int followeeId) {
         this.followeeId = followeeId;
     }
+
+    public Date getTimestamp() {return timestamp;}
+
+    public void setTimestamp(Date timestamp) {this.timestamp = timestamp;}
 
     @Override
     public String toString() {

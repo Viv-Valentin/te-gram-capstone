@@ -1,14 +1,14 @@
 package com.techelevator.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.PhotoDao;
 import com.techelevator.dao.PostDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Photo;
 import com.techelevator.model.Post;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
@@ -62,5 +62,4 @@ public class AccountController {
     public Post getPost(@PathVariable("id") int postId) {
         return postDao.findPostById(postId);
     }
-
 }
