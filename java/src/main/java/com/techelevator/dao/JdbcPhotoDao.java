@@ -35,5 +35,43 @@ public class JdbcPhotoDao implements PhotoDao {
     public List<Photo> findFavoriteById(int userId) {
         return null;
     }
+    @Override
+    public boolean isLiked(int postId, int userId) {
+        String sqlIsLiked = "SELECT COUNT(*) FROM likes WHERE username = ? AND post_id = ?";
+        Integer rows = jdbcTemplate.queryForObject(sqlIsLiked, Integer.class, userId, postId);
+        return rows >= 1;
+    }
 
+    @Override
+    public void like(int postId, int userId) {
+        // might have to set an if statement to check if photo is already liked
+        String sqlLike = "INSERT INTO likes (username, post_id) VALUES (?,?)";
+        jdbcTemplate.update(sqlLike, userId, postId);
+    }
+
+    @Override
+    public void unlike(int postId, int userId) {
+        String sqlLike = "DELETE FROM likes WHERE username = ? AND post_id = ?";
+        jdbcTemplate.update(sqlLike, userId, postId);
+    }
+
+    @Override
+    public int getLikeNumber(int postId) {
+        String sqlGetLikeNumber = "SELECT COUNT(*) FROM likes WHERE post_id = ?";
+        Integer likes = jdbcTemplate.queryForObject(sqlGetLikeNumber, Integer.class, postId);
+        return likes;
+    }
+
+
+    public void addPhotos(List<String> urls, int postId) {
+        String sqlAddPhotos = "INSERT INTO posts (image_url, post_id)" +
+                " VALUES (?, ?)";
+        for (String url: urls) {
+            jdbcTemplate.update(sqlAddPhotos, url, postId);
+        }
+
+    }
 }
+
+
+
