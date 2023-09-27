@@ -49,12 +49,6 @@ CREATE TABLE comments (
     CONSTRAINT FK_comments_posts FOREIGN KEY (post_id) REFERENCES posts (post_id)
 );
 
---CREATE TABLE follow (
---    follower_username VARCHAR(50),
---    following_username VARCHAR(50),
---    CONSTRAINT PK_follow PRIMARY KEY(follow_id),
---    CONSTRAINT FK_follow_users FOREIGN KEY (username) REFERENCES users (username)
---
---);
+
 
 COMMIT TRANSACTION;
