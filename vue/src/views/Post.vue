@@ -1,6 +1,6 @@
 <template>
     <div id="post">
-        <cloudinary-comp msg="Welcome to Your Vue.js App" />
+        <!-- <cloudinary-comp msg="Welcome to Your Vue.js App" /> -->
         <table>
             <tr v-for="post in posts" v-bind:key="post.id">
                 <td>{{ post.id }}</td>
@@ -14,7 +14,7 @@
 
 <script>
 import AddPost from '../components/AddPost.vue';
-import cloudinaryComp from '../components/CloudinaryComp.vue'
+// import cloudinaryComp from '../components/CloudinaryComp.vue'
 import postService from '../services/PostService.js';
 
 export default {
@@ -25,7 +25,7 @@ export default {
         }
     },
     components: {
-        cloudinaryComp,
+        // cloudinaryComp,
         AddPost
     },
     created() {

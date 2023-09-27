@@ -5,10 +5,12 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import javax.xml.crypto.Data;
+import java.util.ArrayList;
 import java.util.List;
-
+@Component
 
 public class JdbcPostDao implements PostDao {
 
@@ -31,12 +33,14 @@ public class JdbcPostDao implements PostDao {
 
     @Override
     public List<Post> getFeed(String username) {
-        return null;
+        List<Post> myPost = new ArrayList<>();
+        return myPost;
     }
 
     @Override
     public Post findPostById(int postId) {
-        return null;
+        Post myPost2 = new Post();
+        return myPost2;
     }
 
     private Post mapRowToRow(SqlRowSet row) {
