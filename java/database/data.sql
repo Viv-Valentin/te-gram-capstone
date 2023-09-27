@@ -1,11 +1,11 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-INSERT INTO users (username,password_hash,role) VALUES ('viv','$2a$10$SkpetsQ1NPbAwC/YQQ3jb..PGCfafOvMMMtqIp3d0DSHoYJ1tMQkG','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('maryam','$2a$10$dIKOD/Bgxwt5rVa7gsymCeXoAPwG/q/PNLQ5oq4Jf0iS.B2.QRPIy','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('kay','$2a$10$ZeOorYllgNirm2vIx8KBveEWA3/MGO89eH8KP0cKsCBd/gnokrjy2','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('nix','$2a$10$GlsSjcOvqTajVWg3vCRLwelkX9QPkKHajLu1r/LKK/0qmQTQ.PL6m','ROLE_USER');
+INSERT INTO users (email,username,password_hash,role) VALUES ('user@mail.com','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (email,username,password_hash,role) VALUES ('admin@mail.com','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (email,username,password_hash,role) VALUES ('viv@mail.com','viv','$2a$10$SkpetsQ1NPbAwC/YQQ3jb..PGCfafOvMMMtqIp3d0DSHoYJ1tMQkG','ROLE_USER');
+INSERT INTO users (email,username,password_hash,role) VALUES ('maryam@mail.com','maryam','$2a$10$dIKOD/Bgxwt5rVa7gsymCeXoAPwG/q/PNLQ5oq4Jf0iS.B2.QRPIy','ROLE_USER');
+INSERT INTO users (email,username,password_hash,role) VALUES ('kay@mail.com','kay','$2a$10$ZeOorYllgNirm2vIx8KBveEWA3/MGO89eH8KP0cKsCBd/gnokrjy2','ROLE_USER');
+INSERT INTO users (email,username,password_hash,role) VALUES ('nix@mail.com','nix','$2a$10$GlsSjcOvqTajVWg3vCRLwelkX9QPkKHajLu1r/LKK/0qmQTQ.PL6m','ROLE_USER');
 
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('viv', 'test caption', 'test url', '09/26/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('maryam', 'test caption', 'test url', '09/25/2023');
@@ -21,9 +21,6 @@ INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv'
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2001, 'beauty!', '09/26/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2004, 'pretty!', '09/23/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2003, 'love it!', '03/24/2023');
-
-
-
 
 
 COMMIT TRANSACTION;
