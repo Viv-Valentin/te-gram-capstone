@@ -71,9 +71,6 @@ export default {
   left: 0; right: 0;
 }
 
-<<<<<<< HEAD
-
-=======
 .form-input-group, h1 {
   margin-bottom: 1rem;
   color: #4D565E;
@@ -103,5 +100,5 @@ label {
    font-family: serif;
 
 }
->>>>>>> a811b419fa92bbdbd2de912d5b0817ef9a99ff78
+
 </style>
