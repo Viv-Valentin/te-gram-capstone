@@ -22,11 +22,11 @@ INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('mary
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2004, 'pretty!', '09/23/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2003, 'love it!', '03/24/2023');
 
-INSERT INTO follow (follower_username, following_username) VALUES ('viv', 'maryam');
-INSERT INTO follow (follower_username, following_username) VALUES ('nix', 'maryam');
-INSERT INTO follow (follower_username, following_username) VALUES ('kay', 'nix');
-INSERT INTO follow (follower_username, following_username) VALUES ('viv', 'nix');
+--INSERT INTO follow (follower_username, following_username) VALUES ('viv', 'maryam');
+--INSERT INTO follow (follower_username, following_username) VALUES ('nix', 'maryam');
+--INSERT INTO follow (follower_username, following_username) VALUES ('kay', 'nix');
+--INSERT INTO follow (follower_username, following_username) VALUES ('viv', 'nix');
 
---will populate with dummy data after meeting with Eric
+
 
 COMMIT TRANSACTION;
