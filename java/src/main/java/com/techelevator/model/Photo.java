@@ -45,7 +45,7 @@ public class Photo {
 
     public Photo (int photoId, int userId, String caption, Date timestamp) {
 
-        this.photoId= photoId;
+        this.photoId = photoId;
         this.userId = userId;
         this.caption = caption;
         this.timestamp = timestamp;

@@ -33,8 +33,8 @@ public class AccountController {
     // upload a picture
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/post", method = RequestMethod.POST)
-    public Post create(@Valid @RequestBody Post post, Principal principal) {
-        return postDao.create(post);
+    public boolean addPost(@Valid @RequestBody Post post, Principal principal) {
+        return postDao.addPost(principal.getName(), post.getCaption(), post.getImgURL());
     }
 
     // show public photo feed
