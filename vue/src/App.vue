@@ -9,13 +9,17 @@
   </div>
 </template>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a66e1114757bdbf1f47d44700d7cbea9bd3513b
 <script>
 export default {
   name: 'App'
 }
 </script>
 
+<<<<<<< HEAD
 
 <style>
 label {
@@ -38,6 +42,9 @@ label {
   color: white;
 }
 
+=======
+<style>
+>>>>>>> 9a66e1114757bdbf1f47d44700d7cbea9bd3513b
 body {
   background: url("assets/LoginBackground.jpg") #fff;
   background-size: cover;
@@ -48,6 +55,7 @@ body {
 div {
  text-align: center;
 }
+<<<<<<< HEAD
 
 
 .form-input-group {
@@ -56,6 +64,8 @@ div {
   margin: 10px auto 30px;
   border-radius: 15px;
 }
+=======
+>>>>>>> 9a66e1114757bdbf1f47d44700d7cbea9bd3513b
 
 label {
   margin-right: 0.5rem;
@@ -75,4 +85,10 @@ button:hover {
   color: white;
 }
 
+.form-input-group {
+  color: #4D565E;
+  text-align: center;
+  margin: 10px auto 30px;
+  border-radius: 15px;
+}
 </style>
