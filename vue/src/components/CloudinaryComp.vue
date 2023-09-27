@@ -1,8 +1,8 @@
 <template>
   <div>
-      <h2>How to use the Cloudinary Upload widget</h2>
+      <br>
       <button v-on:click="upload">Upload</button><br>
-      <p>Look at the console for the message "Image URL"</p>
+     
   </div>
 </template>
 

@@ -1,9 +1,8 @@
 <template>
   <div class="home">
-     <img alt="Vue logo" src="assets/logo.png">
     <cloudinary-comp msg="Welcome to Your Vue.js App"/>
     <h1>Home</h1>
-    <p>If you are seeing this, you are authenticated.</p>
+    <p>You have successfully logged in!</p>
   </div>
 </template>
 
