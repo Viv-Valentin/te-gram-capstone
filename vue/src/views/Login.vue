@@ -69,36 +69,7 @@ export default {
   position: absolute;
   top: 0; bottom: 0; 
   left: 0; right: 0;
-}
-
-.form-input-group, h1 {
-  margin-bottom: 1rem;
-  color: #4D565E;
-  font-family: serif;
-  text-align: center;
-  width: 300px;
-  margin: 10px auto 30px;
-  border-radius: 15px;
-}
-
-label {
-  margin-right: 0.5rem;
-}
-
-#login button:hover {
-  background-color: #4D565E;
-  color: white;
-}
-
-#login button {
-  width: 80px;
-  height: 30px;
-  border-radius: 8px;
-  border-style: solid;
-  border-width: thin;
-  font-weight: bold;
-   font-family: serif;
-
+  z-index: -1;
 }
 
 </style>
