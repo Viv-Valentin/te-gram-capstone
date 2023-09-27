@@ -16,7 +16,12 @@ export default {
   },
   methods: {
       upload() {
-        this.myWidget.open();
+         let text = "Allow access to Photos and Camera";
+         if (confirm(text) == true) {
+            this.myWidget.open();
+         } else {
+           text = "You canceled!";
+         }
       }
   },
   mounted() {
@@ -33,8 +38,7 @@ export default {
           console.log("Image URL: " + result.info.url);
         }
       }
-    );
-
+    )
   }
 }
 </script>
