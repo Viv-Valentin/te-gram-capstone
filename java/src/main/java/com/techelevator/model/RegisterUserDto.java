@@ -15,6 +15,17 @@ public class RegisterUserDto {
     private String password;
     @NotEmpty
     private String confirmPassword;
+
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
 

@@ -47,11 +47,11 @@ public class JdbcPostDao implements PostDao {
 
     private Post mapRowToRow(SqlRowSet row) {
         Post post = new Post();
-        post.setId(row.getInt("post_id"));
-        post.setUserId(row.getInt("user_id"));
+        post.setPostId(row.getInt("post_id"));
+        post.setUsername(row.getString("username"));
         post.setCaption(row.getString("caption"));
         post.setImgURL(row.getString("image_url"));
-        post.setTimestamp(row.getTimestamp("timestamp"));
+        post.setTimestamp(row.getTimestamp("created_at").toLocalDateTime());
         return post;
     }
 }

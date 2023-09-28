@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 public class Post {
 
@@ -7,12 +8,12 @@ public class Post {
     private String username;
     private  String caption;
     private String imgURL;
-    private Date timestamp;
+    private LocalDateTime timestamp;
 
     public Post() {
     }
 
-    public Post(int postId, String username, String caption, String imgURL, Date timestamp) {
+    public Post(int postId, String username, String caption, String imgURL, LocalDateTime timestamp) {
         this.postId = postId;
         this.username = username;
         this.caption = caption;
@@ -20,11 +21,11 @@ public class Post {
         this.timestamp = timestamp;
     }
 
-    public int getId() {
+    public int getPostId() {
         return postId;
     }
 
-    public void setId(int postId) {
+    public void setPostId(int postId) {
         this.postId = postId;
     }
 
@@ -32,7 +33,7 @@ public class Post {
         return username;
     }
 
-    public void setUserId(int userId) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -52,11 +53,11 @@ public class Post {
         this.imgURL = imgURL;
     }
 
-    public Date getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
