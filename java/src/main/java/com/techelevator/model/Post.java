@@ -3,8 +3,8 @@ package com.techelevator.model;
 import java.util.Date;
 public class Post {
 
-    private int photoId;
-    private int userId;
+    private int postId;
+    private String username;
     private  String caption;
     private String imgURL;
     private Date timestamp;
@@ -12,28 +12,28 @@ public class Post {
     public Post() {
     }
 
-    public Post(int photoId, int userId, String caption, String imgURL, Date timestamp) {
-        this.photoId = photoId;
-        this.userId = userId;
+    public Post(int postId, String username, String caption, String imgURL, Date timestamp) {
+        this.postId = postId;
+        this.username = username;
         this.caption = caption;
         this.imgURL = imgURL;
         this.timestamp = timestamp;
     }
 
     public int getId() {
-        return photoId;
+        return postId;
     }
 
-    public void setId(int photoId) {
-        this.photoId = photoId;
+    public void setId(int postId) {
+        this.postId = postId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
     public void setUserId(int userId) {
-        this.userId = userId;
+        this.username = username;
     }
 
     public String getCaption() {
@@ -63,8 +63,8 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "photoId=" + photoId +
-                ", userId=" + userId +
+                "postId=" + postId +
+                ", username=" + username +
                 ", caption='" + caption + '\'' +
                 ", imgURL='" + imgURL + '\'' +
                 ", timestamp=" + timestamp +

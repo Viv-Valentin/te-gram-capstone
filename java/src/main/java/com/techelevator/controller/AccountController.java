@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-//@RestController
+@RestController
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
 public class AccountController {
@@ -33,8 +33,10 @@ public class AccountController {
     // upload a picture
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/post", method = RequestMethod.POST)
-    public Post create(@Valid @RequestBody Post post, Principal principal) {
-        return postDao.create(post);
+    public boolean addPost(@Valid @RequestBody Post post, Principal principal) {
+        postDao.addPost(principal.getName(), post.getCaption(), post.getImgURL());
+        System.out.println(post);
+        return true;
     }
 
     // show public photo feed

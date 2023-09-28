@@ -1,19 +1,23 @@
 <template>
     <div id="post">
-        <cloudinary-comp msg="Welcome to Your Vue.js App" />
+        <add-post />
     </div>
 </template>
 
 <script>
-import cloudinaryComp from '../components/CloudinaryComp.vue'
+import AddPost from '../components/AddPost.vue';
 
 export default {
     name: 'Post',
+    data() {
+        return {
+            posts: []
+        }
+    },
     components: {
-        cloudinaryComp
+        AddPost
     }
 }
 </script>
 
-<style>
-</style>
+<style></style>

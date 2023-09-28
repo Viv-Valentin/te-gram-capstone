@@ -4,11 +4,12 @@ import com.techelevator.model.Photo;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcPhotoDao implements PhotoDao {
     private final JdbcTemplate jdbcTemplate;
     public JdbcPhotoDao(JdbcTemplate jdbcTemplate) {
@@ -33,7 +34,8 @@ public class JdbcPhotoDao implements PhotoDao {
 
     @Override
     public List<Photo> findFavoriteById(int userId) {
-        return null;
+        List<Photo> myPhoto = new ArrayList<>();
+        return myPhoto;
     }
     @Override
     public boolean isLiked(int postId, int userId) {
