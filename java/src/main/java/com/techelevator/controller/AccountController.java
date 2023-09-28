@@ -34,7 +34,7 @@ public class AccountController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/post", method = RequestMethod.POST)
     public boolean addPost(@Valid @RequestBody Post post, Principal principal) {
-//        return postDao.addPost(principal.getName(), post.getCaption(), post.getImgURL());
+        postDao.addPost(principal.getName(), post.getCaption(), post.getImgURL());
         System.out.println(post);
         return true;
     }
