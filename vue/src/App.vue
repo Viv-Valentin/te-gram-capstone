@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/TEConnect.png" alt="TEConnect" />
+    <img src="./assets/TEConnect-border.png" alt="TEConnect" />
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp; |&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp; |&nbsp;

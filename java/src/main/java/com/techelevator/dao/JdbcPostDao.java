@@ -19,9 +19,9 @@ public class JdbcPostDao implements PostDao {
 
     @Override
     public boolean addPost(String username, String caption, String imageUrl) {
-        String sql = "INSERT INTO posts (username, caption, image_url) VALUES (?, ?, ?) RETURNING post_id";
+        String sql = "INSERT INTO posts (username, caption, image_url) VALUES (?, ?, ?);";
         try {
-            jdbcTemplate.queryForObject(sql, int.class, username, caption, imageUrl);
+            jdbcTemplate.queryForObject(sql, Integer.class, username, caption, imageUrl);
         } catch (DataAccessException e) {
             return false;
         }
