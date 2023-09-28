@@ -4,6 +4,8 @@
         <form v-on:submit.prevent="savePost">
             Caption: <input type="text" v-model="post.caption" />
             Upload: <input type="button" value="Upload" v-on:click.prevent="upload" />
+            <br>
+            <br>
             <button>Save</button>
         </form>
     </div>
@@ -20,7 +22,7 @@ export default {
                 username: this.$store.state.user.username,
                 caption: '',
                 imgURL: '',
-                timestamp: Date()
+                // timestamp: Date()
             }
         }
     },

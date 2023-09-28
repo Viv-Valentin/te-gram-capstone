@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <form @submit.prevent="login">
+    <form class="form-input" @submit.prevent="login">
       <h1>Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid email and password!
@@ -19,7 +19,7 @@
       <button type="submit">Login</button>
       <p>
       <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
-    </form>
+    </form>  
   </div>
 </template>
 
@@ -71,5 +71,29 @@ export default {
   left: 0; right: 0;
   z-index: -1;
 }
+
+/* .form-input{
+background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    opacity: .5;
+} */
+
+.form-input{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 0);
+}
+
+
+/* #login {
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+} */
+
+/* #login {
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+}
+     */
 
 </style>
