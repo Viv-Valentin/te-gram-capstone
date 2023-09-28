@@ -12,6 +12,7 @@ import java.util.List;
 @Component
 public class JdbcPhotoDao implements PhotoDao {
     private final JdbcTemplate jdbcTemplate;
+
     public JdbcPhotoDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -37,6 +38,7 @@ public class JdbcPhotoDao implements PhotoDao {
         List<Photo> myPhoto = new ArrayList<>();
         return myPhoto;
     }
+
     @Override
     public boolean isLiked(int postId, int userId) {
         String sqlIsLiked = "SELECT COUNT(*) FROM likes WHERE username = ? AND post_id = ?";
@@ -68,12 +70,9 @@ public class JdbcPhotoDao implements PhotoDao {
     public void addPhotos(List<String> urls, int postId) {
         String sqlAddPhotos = "INSERT INTO posts (image_url, post_id)" +
                 " VALUES (?, ?)";
-        for (String url: urls) {
+        for (String url : urls) {
             jdbcTemplate.update(sqlAddPhotos, url, postId);
         }
 
     }
 }
-
-
-

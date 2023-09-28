@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-
 public class JdbcPostDao implements PostDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -41,10 +40,8 @@ public class JdbcPostDao implements PostDao {
 
     @Override
     public Post findPostById(int postId) {
-        Post myPost2 = new Post();
-        return myPost2;
+        return null;
     }
-
 
     private Post mapRowToRow(SqlRowSet row) {
         Post post = new Post();
@@ -55,5 +52,4 @@ public class JdbcPostDao implements PostDao {
         post.setTimestamp(row.getTimestamp("timestamp"));
         return post;
     }
-
 }
