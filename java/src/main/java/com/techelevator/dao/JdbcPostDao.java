@@ -84,10 +84,6 @@ public class JdbcPostDao implements PostDao {
         Duration duration = Duration.between(thePost.getDatePosted(), currentDT);
         thePost.setSecondsAgo(duration.toSeconds());
 
-        //thePost.setSecondsAgo(
-
-
-
         thePost.setCaption(results.getString("caption"));
 
         return thePost;

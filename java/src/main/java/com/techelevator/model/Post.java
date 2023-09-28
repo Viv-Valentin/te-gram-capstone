@@ -121,4 +121,19 @@ public class Post {
         this.likeNumber = likeNumber;
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", postId=" + postId +
+                ", datePosted=" + datePosted +
+                ", caption='" + caption + '\'' +
+                ", comments=" + comments +
+                ", photos=" + photos +
+                ", liked=" + liked +
+                ", likeNumber=" + likeNumber +
+                ", secondsAgo=" + secondsAgo +
+                '}';
+    }
 }
