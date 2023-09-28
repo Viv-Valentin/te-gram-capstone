@@ -9,6 +9,7 @@
   </div>
 </template>
 
+
 <script>
 import postService from '../services/PostService.js'
 
@@ -59,6 +60,6 @@ export default {
 }
 </script>
 
-<style>
 
+<style>
 </style>
