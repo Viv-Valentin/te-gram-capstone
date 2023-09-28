@@ -6,6 +6,9 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Post from '../views/Post.vue'
 import store from '../store/index'
+import UserProfile from '../views/UserProfile.vue'
+import UploadPhoto from '../views/UploadPhoto.vue'
+import PostDetails from '../views/PostDetails.vue'
 
 Vue.use(Router)
 
@@ -61,9 +64,42 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/upload-photo',
+      name: 'upload-photo',
+      component: UploadPhoto,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: UserProfile,
+      meta: {
+        requiresAuth: true
+      },
+    },
+    {
+      path: '/profile/:username',
+      name: 'profileByName',
+      component: UserProfile,
+      meta: {
+        requiresAuth: true
+      },
+    },
+    {
+      path: '/postDetails/:postId',
+      name: 'postDetails',
+      component: PostDetails,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
+
 
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication

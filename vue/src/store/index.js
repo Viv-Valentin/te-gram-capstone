@@ -18,10 +18,23 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    posts: [],
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    profile:{},
+    post: {}
   },
   mutations: {
+    ADD_COMMENT(state, comment) {
+      console.log(comment)
+      const postToChange = state.posts.findIndex(post => post.postId === comment.postId);
+      state.posts[postToChange].comments.push(comment);
+    },
+    REMOVE_COMMENT(state, commentToDelete) {
+      const postIndex = state.posts.findIndex(post => post.postId === commentToDelete.postId);
+      const postToChange = state.posts[postIndex]
+      postToChange.comments = postToChange.comments.filter(comment => comment.commentId !== commentToDelete.commentId)
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
@@ -37,6 +50,25 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_POSTS(state, data) {
+      state.posts = data;
+    },
+    SET_POST(state, data) {
+      state.post = data;
+    },
+    TOGGLE_LIKE(state, postToChange) {
+      const postToModify = state.posts.findIndex((post) => post.postId === postToChange.postId)
+      postToChange.liked = !postToChange.liked;
+      if (postToChange.liked) {
+        postToChange.likeNumber++;
+      } else {
+        postToChange.likeNumber--;
+      }
+      state.posts[postToModify] = postToChange;
+    },
+    SET_PROFILE(state, data) {
+      state.profile = data;
     }
-  }
+  },
 })

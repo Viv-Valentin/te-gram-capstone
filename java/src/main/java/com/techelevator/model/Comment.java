@@ -1,25 +1,29 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Comment {
     private int commentId;
-    private int userId;
+
     private int postId;
     private String comment;
-    private Date timestamp;
+    private LocalDateTime dateTime;
+    private Long secondsAgo;
+    private String username;
 
-    public Comment() {
-    }
+    public Comment() {};
 
-    public Comment(int commentId, int userId, int postId, String comment, Date timestamp) {
+    public Comment(int commentId,  int postId, String comment, LocalDateTime dateTime, Long secondsAgo, String username) {
         this.commentId = commentId;
-        this.userId = userId;
+
         this.postId = postId;
         this.comment = comment;
-        this.timestamp = timestamp;
+        this.dateTime = dateTime;
+        this.secondsAgo = secondsAgo;
+        this.username = username;
     }
-
     public int getCommentId() {
         return commentId;
     }
@@ -28,13 +32,6 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public int getPostId() {
         return postId;
@@ -48,26 +45,33 @@ public class Comment {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(String message) {
         this.comment = comment;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "commentId=" + commentId +
-                ", userId=" + userId +
-                ", postId=" + postId +
-                ", comment='" + comment + '\'' +
-                ", timestamp=" + timestamp +
-                '}';
+    public String getUsername() {
+        return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Long getSecondsAgo() {
+        return secondsAgo;
+    }
+
+    public void setSecondsAgo(Long secondsAgo) {
+        this.secondsAgo =secondsAgo;
+    }
+
+
 }

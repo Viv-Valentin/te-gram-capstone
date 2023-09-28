@@ -3,7 +3,6 @@
     <h2 id="username" v-on:click="$router.push(`/profile/${post.username}`)">
       {{ post.username }}
     </h2>
-
     <vueper-slides
       id="image-slideshow"
       class="no-shadow"
@@ -139,7 +138,7 @@ export default {
           console.log(error.response);
         });
       this.$store.commit("TOGGLE_LIKE", this.post);
-    },   
+    },  
   },
 };
 </script>
@@ -157,7 +156,7 @@ export default {
   grid-template-areas:
     "username . ."
     "image image image"
-    "btns"
+    "btns "
     "likes . ."
     "caption caption caption"
     "comments comments comments"
