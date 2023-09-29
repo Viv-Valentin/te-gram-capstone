@@ -48,7 +48,7 @@ public class AccountController {
 
     // view photos by user
     @RequestMapping(path = "/{username}", method = RequestMethod.GET)
-    public List<Photo> getPhotos(Principal principal) {
+    public List<Photo> getPosts(Principal principal) {
         int userId = userDao.findIdByUsername(principal.getName());
         return photoDao.findPhotosById(userId);
     }
