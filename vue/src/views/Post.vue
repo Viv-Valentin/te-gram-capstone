@@ -84,9 +84,6 @@ export default {
     liked() {
       return this.post.liked;
     },
-    favorited() {
-      return this.post.favorited;
-    },
     timeSince() {
       let seconds = this.post.secondsAgo;
 

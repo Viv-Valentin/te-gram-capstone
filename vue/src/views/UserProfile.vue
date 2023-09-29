@@ -44,42 +44,31 @@
   </div>
 </template>
 
-<script>
-import profileService from "../services/ProfileService.js";
-import followService from "../services/FollowService.js";
-import ProfilePostFeed from "../components/ProfilePostFeed.vue";
+// <script>
+// import userProfile from "../services/ProfileService.js";
+// import followService from "../services/FollowService.js";
 
-export default {
-  components: {
-    ProfilePostFeed,
-  },
-  created() {
-    profileService
-      .getProfileByName(this.$route.params.username)
-      .then((response) => {
-        this.$store.commit("SET_PROFILE", response.data);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  },
-  methods: {
-    followUser() {
-      followService.follow(this.$store.state.profile.userId);
-      this.$store.commit("TOGGLE_FOLLOW_PROFILE");
-    },
-    unfollowUser() {
-      followService.unfollow(this.$store.state.profile.userId);
-      this.$store.commit("TOGGLE_FOLLOW_PROFILE");
-    },
-  },
-  computed: {
-    followed() {
-      return this.$store.state.profile.followed;
-    },
-  },
-};
-</script>
+// export default {
+//   components: {
+//   methods: {
+//     followUser() {
+//       followService.follow(this.$store.state.profile.userId);
+//       this.$store.commit("TOGGLE_FOLLOW_PROFILE");
+//     },
+//     unfollowUser() {
+//       followService.unfollow(this.$store.state.profile.userId);
+//       this.$store.commit("TOGGLE_FOLLOW_PROFILE");
+//     },
+//   },
+//   computed: {
+//     followed() {
+//       return this.$store.state.profile.followed;
+//     },
+//   },
+// }
+// }
+
+// </script>
 
 <style>
 #profile {
