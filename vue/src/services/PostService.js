@@ -10,9 +10,11 @@ export default {
         return axios.post("/post", post);
     },
 
-    getPosts(){
-        return axios.get()
+    getPosts(posts){
+        return axios.get('/:username', posts)
     }
+
+
 
 
 

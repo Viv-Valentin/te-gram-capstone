@@ -32,45 +32,45 @@ const router = new Router({
       }
     },
     {
-      path: "/login",
-      name: "login",
+      path: '/login',
+      name: 'login',
       component: Login,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/logout",
-      name: "logout",
+      path: '/logout',
+      name: 'logout',
       component: Logout,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/register",
-      name: "register",
+      path: '/register',
+      name: 'register',
       component: Register,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/post",
-      name: "post",
+      path: '/post',
+      name: 'post',
       component: Post,
       meta: {
         requiresAuth: true
       }
     },
-      {
-        path:"/{username}",
-        name:"username",
-        component: UserProfile,
-        meta:{
-          requiresAuth: true
-        }
+    {
+      path: '/:username',
+      name: 'username',
+      component: UserProfile,
+      meta: {
+        requiresAuth: true
       }
+    }
   ]
 })
 

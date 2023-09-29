@@ -64,6 +64,6 @@ public class AccountController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @RequestMapping(path = "/{username}/{id}", method = RequestMethod.GET)
     public Post getPost(@PathVariable("id") int postId) {
-        return postDao.findPostById(postId);
+        return postDao.findPostById(postId); // we'll need this to get a single post and see it's full details
     }
 }

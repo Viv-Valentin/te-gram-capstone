@@ -20,6 +20,12 @@ export default {
             filter: this.username,
         };
     },
+    created(){
+        postService.getPosts(this.$route.params.username).then(response => {
+            this.post.imgURL = response.data.post.imgURL;
+            // need to check on this to make sure it's done correctly -viv
+        })
+    },
     computed: {
         filteredPosts() {
             return this.posts.filter(post => {
