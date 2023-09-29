@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Home</h1>
     <p>You have successfully logged in!</p>
-      <div class="feedpost" v-for="post in posts" v-bind:key="post.id">
+      <div class="feedpost" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
         <img v-bind:src="post.imgURL" />
         <div class= "caption">{{ post.caption }}</div>
       </div>

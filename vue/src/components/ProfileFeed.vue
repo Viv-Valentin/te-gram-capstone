@@ -4,6 +4,10 @@
         <div class="profile-feed" v-for="post in posts" v-bind:key="post.id">
             <img v-bind:src="post.imgURL" />
             <div class="caption">{{ post.caption }}</div>
+            
+  
+
+            
         </div>
     </div>
 </template>
@@ -22,14 +26,14 @@ export default {
     },
     created(){
         postService.getPosts(this.$route.params.username).then(response => {
-            this.post.imgURL = response.data.post.imgURL;
+            this.posts = response.data;
             // need to check on this to make sure it's done correctly -viv
         })
     },
     computed: {
         filteredPosts() {
             return this.posts.filter(post => {
-                return this.filter === '' ? true : this.filter === post.username;
+                post.username === this.selectedUser
             });
         }
     },

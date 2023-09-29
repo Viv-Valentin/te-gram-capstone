@@ -38,5 +38,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     }
+
+    // it's an option to add on to these mutations, delete, set, 
+    // look more into this with other examples
   }
 })
