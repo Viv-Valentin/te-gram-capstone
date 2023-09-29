@@ -5,7 +5,11 @@
             <img v-bind:src="post.imgURL" />
             <div class="caption">{{ post.caption }}</div>
             
-  
+                  <div class="feedpost" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
+        <img v-bind:src="post.imgURL" />
+        <div class= "caption">{{ post.caption }}</div>
+      </div>
+            
 
             
         </div>
@@ -19,22 +23,23 @@ export default {
     name: 'profile-feed',
     data() {
         return {
-            username: '',
-            posts: [],
+            username: this.$store.state.user.username,
             newPost: [],
-            
+            filter: this.username,
         };
     },
     created(){
-        this.username = this.$route.params.username;
-        postService.getPosts(this.username).then(response => {
+        postService.getPosts(this.$route.params.username).then(response => {
             this.posts = response.data;
-            // need to check on this to make sure it's done correctly -viv this is still incorrect
+            
+            // need to check on this to make sure it's done correctly -viv
         })
     },
     computed: {
         filteredPosts() {
-            return this.posts.filter(post => post.username === this.selectedUser);
+            return this.posts.filter(post => {
+                this.username === this.selectedUser
+            });
         }
     },
     methods: {

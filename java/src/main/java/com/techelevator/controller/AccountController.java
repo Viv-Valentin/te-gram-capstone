@@ -49,7 +49,7 @@ public class AccountController {
     // view photos by user
     @RequestMapping(path = "/{username}", method = RequestMethod.GET)
     public List<Photo> getPosts(Principal principal) {
-        return photoDao.findPhotosByUsername(principal.getName()); // I am predicting this is the CULPRIT! viv. nix is saying it's SQL grammar. maryam says java.
+        return photoDao.findPhotosByUsername(principal.getName());
     }
 
     // display favorite photos

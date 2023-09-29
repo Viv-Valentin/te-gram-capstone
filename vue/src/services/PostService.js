@@ -15,6 +15,8 @@ export default {
         // potential issue here
     }
 
+    // add in another get post to actually get and display that info
+
 
 
 
