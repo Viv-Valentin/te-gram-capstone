@@ -16,8 +16,8 @@ export default {
     },
     components: {
         AddPost
-    }
+    },
 }
+
 </script>
 
-<style></style>

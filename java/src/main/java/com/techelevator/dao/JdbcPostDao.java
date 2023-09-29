@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Component
@@ -19,14 +20,15 @@ public class JdbcPostDao implements PostDao {
 
     @Override
     public boolean addPost(String username, String caption, String imageUrl) {
-        String sql = "INSERT INTO posts (username, caption, image_url) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO posts (username, caption, image_url, created_at) VALUES (?, ?, ?, ?);";
         try {
-            jdbcTemplate.queryForObject(sql, Integer.class, username, caption, imageUrl);
+            jdbcTemplate.queryForObject(sql, Integer.class, username, caption, imageUrl, LocalDateTime.now());
         } catch (DataAccessException e) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public List<Post> getFeed(String username) {
@@ -34,18 +36,23 @@ public class JdbcPostDao implements PostDao {
         String sql = "SELECT * FROM posts;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            posts.add(mapRowToRow(results));
+            posts.add(mapRowToPost(results));
         }
         return posts;
     }
 
     @Override
     public Post findPostById(int postId) {
-        Post myPost2 = new Post();
-        return myPost2;
+        Post post = null;
+        String sql = "SELECT * FROM posts WHERE post_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        if (results.next()) {
+           post = mapRowToPost(results);
+        }
+        return post;
     }
 
-    private Post mapRowToRow(SqlRowSet row) {
+    private Post mapRowToPost(SqlRowSet row) {
         Post post = new Post();
         post.setPostId(row.getInt("post_id"));
         post.setUsername(row.getString("username"));

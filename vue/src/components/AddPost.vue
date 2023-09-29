@@ -22,8 +22,7 @@ export default {
             post: {
                 username: this.$store.state.user.username,
                 caption: '',
-                imgURL: '',
-                // timestamp: Date()
+                imgURL: ''
             }
         }
     },

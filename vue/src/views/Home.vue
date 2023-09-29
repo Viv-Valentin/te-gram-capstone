@@ -2,15 +2,10 @@
   <div class="home">
     <h1>Home</h1>
     <p>You have successfully logged in!</p>
-    <table>
-      <tr v-for="post in posts" v-bind:key="post.id">
-        <td>{{ post.id }}</td>
-        <td>{{ post.username }}</td>
-        <td>{{ post.caption }}</td>
-        <td>{{ post.imgUrl }}</td>
-        <td>{{ post.timestamp }}</td>
-      </tr>
-    </table>
+      <div class="feedpost" v-for="post in posts" v-bind:key="post.id">
+        <img v-bind:src="post.imgURL" />
+        <div class= "caption">{{ post.caption }}</div>
+      </div>
   </div>
 </template>
 
@@ -33,3 +28,22 @@ export default {
   }
 };
 </script>
+
+<style>
+
+.home {
+  width: 400px;
+  margin: auto;
+}
+
+.feedpost {
+  width: 100%;
+}
+
+.feedpost img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+</style>
