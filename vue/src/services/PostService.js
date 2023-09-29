@@ -9,5 +9,10 @@ export default {
     addPost(post) {
         return axios.post("/post", post);
     }
+    getPhotos(){
+        return axios.get()
+    }
+
+
 
 }
