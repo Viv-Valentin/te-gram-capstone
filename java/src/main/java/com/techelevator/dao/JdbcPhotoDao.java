@@ -17,11 +17,11 @@ public class JdbcPhotoDao implements PhotoDao {
     }
 
     @Override
-    public List<Photo> findPhotosById(int userId) {
+    public List<Photo> findPhotosByUsername(String username) {
         List<Photo> photos = new ArrayList<>();
-        String sql = "SELECT image_url FROM posts WHERE user_id = ?;"; // don't fill in the blank for any serial things, Rockey will send screenshot
+        String sql = "SELECT image_url FROM posts WHERE username ILIKE ?;"; // don't fill in the blank for any serial things, Rockey will send screenshot
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()) {
                 Photo photo = new Photo();
                 photos.add(photo);

@@ -19,22 +19,22 @@ export default {
     name: 'profile-feed',
     data() {
         return {
-            username: this.$store.state.user.username,
+            username: '',
+            posts: [],
             newPost: [],
-            filter: this.username,
+            
         };
     },
     created(){
-        postService.getPosts(this.$route.params.username).then(response => {
+        this.username = this.$route.params.username;
+        postService.getPosts(this.username).then(response => {
             this.posts = response.data;
-            // need to check on this to make sure it's done correctly -viv
+            // need to check on this to make sure it's done correctly -viv this is still incorrect
         })
     },
     computed: {
         filteredPosts() {
-            return this.posts.filter(post => {
-                post.username === this.selectedUser
-            });
+            return this.posts.filter(post => post.username === this.selectedUser);
         }
     },
     methods: {
