@@ -6,15 +6,13 @@
         Invalid username and password!
       </div>
       <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
+        Thank you for registering! Please sign in.
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <input type="text" id="username" placeholder="Username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <input type="password" id="password" placeholder="Password" v-model="user.password" required />
       </div>
       <button type="submit">Login</button>
       <p>
@@ -77,6 +75,9 @@ export default {
 .form-input{
     background-color: rgba(255, 255, 255, 0.5);
     color: rgb(0, 0, 0);
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0  #4D565E;
 }
 
 </style>

@@ -1,25 +1,21 @@
 <template>
   <div id="register" class="text-center">
-    <form @submit.prevent="register">
+    <form class="register-input" @submit.prevent="register">
       <h1>Create Account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <input type="text" id="username" placeholder="Username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="email">Email Address</label>
-        <input type="text" id="email" v-model="user.email" required autofocus />
+        <input type="text" id="email" placeholder="Email Address" v-model="user.email" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <input type="password" id="password" placeholder="Password" v-model="user.password" required />
       </div>
       <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" v-model="user.confirmPassword" required />
       </div>
       <button type="submit">Create Account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
@@ -87,5 +83,17 @@ export default {
   top: 0; bottom: 0; 
   left: 0; right: 0;
   z-index: -1;
+
+
 }
+
+.register-input{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 0);
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0  #4D565E;
+}
+
+
 </style>
