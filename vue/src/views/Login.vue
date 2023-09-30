@@ -72,28 +72,10 @@ export default {
   z-index: -1;
 }
 
-/* .form-input{
-background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    opacity: .5;
-} */
 
 .form-input{
     background-color: rgba(255, 255, 255, 0.5);
     color: rgb(0, 0, 0);
 }
-
-
-/* #login {
-    background-color: #000;
-    color: #fff;
-    opacity: .5;
-} */
-
-/* #login {
-    background-color: rgba(0,0,0,.5);
-    color: #fff;
-}
-     */
 
 </style>

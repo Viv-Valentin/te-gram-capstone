@@ -2,9 +2,11 @@
   <div class="home">
     <h1>Home</h1>
     <p>You have successfully logged in!</p>
+    <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
         <img v-bind:src="post.imgURL" />
         <div class= "caption">{{ post.caption }}</div>
+        </div>
       </div>
   </div>
 </template>
@@ -31,13 +33,23 @@ export default {
 
 <style>
 
+#feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ align-content: flex-start;
+}
+
 .home {
-  width: 400px;
   margin: auto;
 }
 
 .feed-post {
-  width: 100%;
+  width: 400px;
+  background: rgba(255, 255,255, 0.8);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 5px;
 }
 
 .feed-post img {
