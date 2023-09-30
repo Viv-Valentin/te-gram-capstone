@@ -44,8 +44,8 @@ public class AccountController {
 
     // view photos by user
     @RequestMapping(path = "/{username}", method = RequestMethod.GET)
-    public List<Post> getPosts(Principal principal) {
-        return postDao.findPhotosByUsername(principal.getName());
+    public List<Post> getPosts(@PathVariable("username") String username) {
+        return postDao.findPhotosByUsername(username);
     }
 
     // display favorite photos

@@ -64,7 +64,6 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: left;
   margin: 0;
-
 }
 
 div {
@@ -75,11 +74,18 @@ label {
   margin-right: 0.5rem;
 }
 
-
 .form-input-group {
   color: #4D565E;
   text-align: center;
   margin: 10px auto 30px;
   border-radius: 15px;
+}
+
+a{
+  color: #2B4F60;
+}
+a:hover{
+  color: #FF6359;
+  text-decoration: none;
 }
 </style>

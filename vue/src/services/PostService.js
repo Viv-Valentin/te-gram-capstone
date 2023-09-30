@@ -10,8 +10,8 @@ export default {
         return axios.post("/post", post);
     },
 
-    getPosts(username){
-        return axios.get("/:username", username)
+    getPosts(){
+        return axios.get("/:username")
         // potential issue here
     }
 
