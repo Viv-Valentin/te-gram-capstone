@@ -35,10 +35,13 @@ export default {
 
 #feed {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
- align-content: flex-start;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin: auto;
+  gap: 2em;
+
 }
+
 
 .home {
   margin: auto;
@@ -47,9 +50,11 @@ export default {
 .feed-post {
   width: 400px;
   background: rgba(255, 255,255, 0.8);
-  margin: 1em;
+  
   padding: 1em;
   border-radius: 5px;
+  box-sizing: border-box;
+
 }
 
 .feed-post img {

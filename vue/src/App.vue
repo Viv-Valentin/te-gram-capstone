@@ -75,19 +75,6 @@ label {
   margin-right: 0.5rem;
 }
 
-button {
-  width: 80px;
-  height: 30px;
-  border-radius: 8px;
-  border-style: solid;
-  border-width: thin;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #4D565E;
-  color: white;
-}
 
 .form-input-group {
   color: #4D565E;
