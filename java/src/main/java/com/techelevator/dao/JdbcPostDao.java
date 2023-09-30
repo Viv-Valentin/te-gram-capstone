@@ -1,5 +1,4 @@
 package com.techelevator.dao;
-import com.techelevator.model.Photo;
 import com.techelevator.model.Post;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -58,11 +57,11 @@ public class JdbcPostDao implements PostDao {
     @Override
     public List<Post> findPhotosByUsername(String username) {
         List<Post> posts = new ArrayList<>();
-        String sql = "SELECT image_url FROM posts WHERE username ILIKE ?;";
+        String sql = "SELECT * FROM posts WHERE username ILIKE ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()) {
-                Post post = new Post();
+                Post post = mapRowToPost(results);
                 posts.add(post);
             }
         } catch (CannotGetJdbcConnectionException e) {

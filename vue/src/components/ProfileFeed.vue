@@ -1,6 +1,6 @@
 <template>
     <div class="user-profile">
-        <h1>{{ $store.state.user.username }}</h1>
+        <h1>{{ loggedUser }}</h1>
         <div class="profile-feed" v-for="post in posts" v-bind:key="post.id">
             <img v-bind:src="post.imgURL" />
             <div class="caption">{{ post.caption }}</div>
@@ -23,7 +23,8 @@ export default {
     name: 'profile-feed',
     data() {
         return {
-            username: this.$store.state.user.username,
+            loggedUser: this.$store.state.user.username,
+            profileUser: '',
             posts: [],
             filter: this.username,
         };
