@@ -5,7 +5,7 @@
             <img v-bind:src="post.imgURL" />
             <div class="caption">{{ post.caption }}</div>
             
-                  <div class="feedpost" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
+                  <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
         <img v-bind:src="post.imgURL" />
         <div class= "caption">{{ post.caption }}</div>
       </div>
@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             username: this.$store.state.user.username,
-            newPost: [],
+            posts: [],
             filter: this.username,
         };
     },
@@ -38,7 +38,7 @@ export default {
     computed: {
         filteredPosts() {
             return this.posts.filter(post => {
-                this.username === this.selectedUser
+                this.filter === '' ? true : this.filter === post.username;
             });
         }
     },

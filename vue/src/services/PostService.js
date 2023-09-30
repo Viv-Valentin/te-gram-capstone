@@ -11,7 +11,7 @@ export default {
     },
 
     getPosts(username){
-        return axios.get('/${username}', username)
+        return axios.get("/:username", username)
         // potential issue here
     }
 

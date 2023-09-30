@@ -1,9 +1,12 @@
 package com.techelevator.dao;
+import com.techelevator.model.Photo;
 import com.techelevator.model.Post;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -51,6 +54,29 @@ public class JdbcPostDao implements PostDao {
         }
         return post;
     }
+
+    @Override
+    public List<Post> findPhotosByUsername(String username) {
+        List<Post> posts = new ArrayList<>();
+        String sql = "SELECT image_url FROM posts WHERE username ILIKE ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            while (results.next()) {
+                Post post = new Post();
+                posts.add(post);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new ResourceAccessException("Unable to connect to server or database");
+        }
+        return posts;
+    }
+
+    @Override
+    public List<Post> findFavoriteById(int userId) {
+        List<Post> post = new ArrayList<>();
+        return post;
+    }
+
 
     private Post mapRowToPost(SqlRowSet row) {
         Post post = new Post();

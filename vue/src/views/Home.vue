@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Home</h1>
     <p>You have successfully logged in!</p>
-      <div class="feedpost" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
+      <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
         <img v-bind:src="post.imgURL" />
         <div class= "caption">{{ post.caption }}</div>
       </div>
@@ -36,11 +36,11 @@ export default {
   margin: auto;
 }
 
-.feedpost {
+.feed-post {
   width: 100%;
 }
 
-.feedpost img {
+.feed-post img {
   width: 100%;
   height: 300px;
   object-fit: cover;

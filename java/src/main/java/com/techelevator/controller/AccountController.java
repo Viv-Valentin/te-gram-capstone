@@ -2,10 +2,8 @@ package com.techelevator.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
-import com.techelevator.dao.PhotoDao;
 import com.techelevator.dao.PostDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.Photo;
 import com.techelevator.model.Post;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +19,10 @@ import java.util.List;
 public class AccountController {
 
     private final UserDao userDao;
-    private final PhotoDao photoDao;
     private final PostDao postDao;
 
-    public AccountController(UserDao userDao, PhotoDao photoDao, PostDao postDao) {
+    public AccountController(UserDao userDao, PostDao postDao) {
         this.userDao = userDao;
-        this.photoDao = photoDao;
         this.postDao = postDao;
     }
 
@@ -48,15 +44,15 @@ public class AccountController {
 
     // view photos by user
     @RequestMapping(path = "/{username}", method = RequestMethod.GET)
-    public List<Photo> getPosts(Principal principal) {
-        return photoDao.findPhotosByUsername(principal.getName());
+    public List<Post> getPosts(Principal principal) {
+        return postDao.findPhotosByUsername(principal.getName());
     }
 
     // display favorite photos
     @RequestMapping(path = "/{username}/favorite", method = RequestMethod.GET)
-    public List<Photo> getFavorite(Principal principal) {
+    public List<Post> getFavorite(Principal principal) {
         int userId = userDao.findIdByUsername(principal.getName());
-        return photoDao.findFavoriteById(userId);
+        return postDao.findFavoriteById(userId);
     }
 
     // view photo post in full detail
