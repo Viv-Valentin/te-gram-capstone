@@ -18,11 +18,9 @@ import java.util.List;
 @PreAuthorize("isAuthenticated()")
 public class AccountController {
 
-    private final UserDao userDao;
     private final PostDao postDao;
 
-    public AccountController(UserDao userDao, PostDao postDao) {
-        this.userDao = userDao;
+    public AccountController(PostDao postDao) {
         this.postDao = postDao;
     }
 
