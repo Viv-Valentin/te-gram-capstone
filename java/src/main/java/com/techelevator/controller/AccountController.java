@@ -48,11 +48,25 @@ public class AccountController {
         return postDao.findPhotosByUsername(username);
     }
 
+    // add favorite photo
+    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
+    public Post addFavorite(@PathVariable("username") Principal principal, Post post) {
+        String username = principal.getName();
+        return postDao.addFavorite(username, post);
+    }
+
+    // delete favorite photo
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
+    public Post deleteFavorite(@PathVariable("username") Principal principal, Post post) {
+        String username = principal.getName();
+        return postDao.deleteFavorite(username, post);
+    }
+
     // display favorite photos
     @RequestMapping(path = "/{username}/favorite", method = RequestMethod.GET)
-    public List<Post> getFavorite(Principal principal) {
-        int userId = userDao.findIdByUsername(principal.getName());
-        return postDao.findFavoriteById(userId);
+    public List<Post> getFavorite(@PathVariable("username") String username) {
+        return postDao.findFavoriteByUsername(username);
     }
 
     // view photo post in full detail

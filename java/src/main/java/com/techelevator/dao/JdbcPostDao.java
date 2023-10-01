@@ -71,11 +71,29 @@ public class JdbcPostDao implements PostDao {
     }
 
     @Override
-    public List<Post> findFavoriteById(int userId) {
-        List<Post> post = new ArrayList<>();
+    public Post addFavorite(String username, Post post) {
+        String sql = "INSERT INTO likes (username, post_id) " +
+                "VALUES (?, ?) RETURNING post_id";
+        Integer postId = jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
+        post.setPostId(postId);
         return post;
     }
 
+    @Override
+    public Post deleteFavorite(String username, Post post) {
+        String sql = "DELETE FROM likes WHERE post_id = ?;";
+        jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
+        return post;
+    }
+
+    @Override
+    public List<Post> findFavoriteByUsername(String username) {
+        List<Post> post = new ArrayList<>();
+        String sql = "SELECT posts.post_id, posts.username, posts.caption, posts.image_url, posts.created_at, likes.like_id FROM posts " +
+                "JOIN likes ON likes.post_id = posts.post_id" +
+                "WHERE posts.username ILIKE ?;";
+        return post;
+    }
 
     private Post mapRowToPost(SqlRowSet row) {
         Post post = new Post();

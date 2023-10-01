@@ -94,6 +94,19 @@ export default {
     padding: 2em;
     border-radius: 5px;
     box-shadow: 1px 1px 5px 0  #4D565E;
+    width: 300px;
+}
+
+.register-input input {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px #c0c0c0 solid;
+  width: 200px;
+}
+
+.register-input input:focus {
+  border: 1px #00ADEE solid;
+  outline: 0;
 }
 
 

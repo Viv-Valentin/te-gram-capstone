@@ -10,15 +10,8 @@ export default {
         return axios.post("/post", post);
     },
 
-    getPosts(){
-        return axios.get("/:username")
-        // potential issue here
+    getPosts(username){
+        return axios.get("/" + username)
     }
-
-    // add in another get post to actually get and display that info
-
-
-
-
 
 }

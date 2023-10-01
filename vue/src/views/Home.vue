@@ -3,9 +3,9 @@
     <h1>Home</h1>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
-        <div class="username" >{{post.username}}</div>
+        <router-link class="username" v-bind:to="{ name: 'username', params: { username : post.username }}">{{post.username}}</router-link>
         <img v-bind:src="post.imgURL" />
-        <div class= "caption">{{ post.caption }}</div>
+        <div class="caption">{{ post.caption }}</div>
         </div>
       </div>
   </div>
@@ -37,7 +37,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  margin: auto;
+  margin: 0 auto 5em auto;
   gap: 2em;
 
 }

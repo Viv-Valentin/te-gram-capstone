@@ -28,8 +28,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255, 255,255, 0.8);
+  background-color: #fefefe;
   box-shadow: 1px 1px 5px 0  #4D565E;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 #nav > ul  {
@@ -59,7 +63,7 @@ export default {
 }
 
 body {
-  background: url("assets/LoginBackground.jpg") #fff;
+  background: url("assets/LoginBackground.jpg") #fff center no-repeat fixed;
   background-size: cover;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: left;
@@ -83,6 +87,7 @@ label {
 
 a{
   color: #2B4F60;
+  transition: all 0.5s ease-in-out; 
 }
 a:hover{
   color: #FF6359;
