@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You have successfully logged in!</p>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
+        <div class="username" >{{post.username}}</div>
         <img v-bind:src="post.imgURL" />
         <div class= "caption">{{ post.caption }}</div>
         </div>

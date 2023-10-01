@@ -6,7 +6,7 @@
     </div>
     <div id="nav">
       <ul>
-        <li><router-link v-bind:to="{ name: 'home' }">Home</router-link></li>
+        <li><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link></li>
         <li><router-link  v-bind:to="{ name: 'post' }" v-if="$store.state.token != ''">Post</router-link></li>
         <li><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
       </ul>
@@ -87,5 +87,15 @@ a{
 a:hover{
   color: #FF6359;
   text-decoration: none;
+}
+.fail{
+  color: #FF6359;
+  margin-bottom: 2em;
+
+
+}
+.success{
+  color: #2B4F60;
+  margin-bottom: 2em;
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="register" class="text-center">
     <form class="register-input" @submit.prevent="register">
       <h1>Create Account</h1>
-      <div role="alert" v-if="registrationErrors">
+      <div class="fail" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
@@ -86,6 +86,7 @@ export default {
 
 
 }
+
 
 .register-input{
     background-color: rgba(255, 255, 255, 0.5);

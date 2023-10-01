@@ -12,7 +12,7 @@
           <textarea id="caption" v-model="post.caption"></textarea>
         </div>
         <div class="save-input">
-          <button>Save</button>
+          <button>Post</button>
         </div>
       </div>
     </form>

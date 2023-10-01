@@ -2,10 +2,10 @@
   <div id="login">
     <form class="form-input" @submit.prevent="login">
       <h1>Please Sign In</h1>
-      <div role="alert" v-if="invalidCredentials">
+      <div class="fail" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
-      <div role="alert" v-if="this.$route.query.registration">
+      <div class="success" role="alert" v-if="this.$route.query.registration">
         Thank you for registering! Please sign in.
       </div>
       <div class="form-input-group">
@@ -69,8 +69,6 @@ export default {
   left: 0; right: 0;
   z-index: -1;
 }
-
-
 
 .form-input{
     background-color: rgba(255, 255, 255, 0.5);
