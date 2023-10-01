@@ -2,14 +2,14 @@ package com.techelevator.model;
 
 public class Like {
     private int likeId;
-    private int userId;
+    private String username;
     private int postId;
 
     public Like() {}
 
-    public Like(int likeId, int userId, int postId) {
+    public Like(int likeId, String username, int postId) {
         this.likeId = likeId;
-        this.userId = userId;
+        this.username = username;
         this.postId = postId;
     }
 
@@ -21,12 +21,12 @@ public class Like {
         this.likeId = likeId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(int userId) {
+        this.username = username;
     }
 
     public int getPostId() {
@@ -41,7 +41,7 @@ public class Like {
     public String toString() {
         return "Like{" +
                 "likeId=" + likeId +
-                ", userId=" + userId +
+                ", username=" + username +
                 ", postId=" + postId +
                 '}';
     }

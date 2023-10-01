@@ -3,11 +3,13 @@
     <h1>Home</h1>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
-        <router-link class="username" v-bind:to="{ name: 'username', params: { username : post.username }}">{{post.username}}</router-link>
+        <router-link class="username"
+          v-bind:to="{ name: 'username', params: { username: post.username }}">{{ post.username }}</router-link>
         <img v-bind:src="post.imgURL" />
         <div class="caption">{{ post.caption }}</div>
-        </div>
+        <router-link v-bind:to="{ name: 'details', params: { username: post.username, id: post.postId }}">LINK TO POST</router-link>
       </div>
+    </div>
   </div>
 </template>
 
@@ -32,7 +34,6 @@ export default {
 </script>
 
 <style>
-
 #feed {
   display: flex;
   justify-content: center;
@@ -48,8 +49,8 @@ export default {
 
 .feed-post {
   width: 400px;
-  background: rgba(255, 255,255, 0.8);
-  
+  background: rgba(255, 255, 255, 0.8);
+
   padding: 1em;
   border-radius: 5px;
   box-sizing: border-box;
@@ -61,5 +62,4 @@ export default {
   height: 300px;
   object-fit: cover;
 }
-
 </style>

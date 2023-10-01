@@ -5,8 +5,10 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Post from '../views/Post.vue'
-import store from '../store/index'
 import UserProfile from '../views/UserProfile.vue'
+import Favorite from '../views/Favorite.vue'
+import PostDetails from '../views/PostDetails.vue'
+import store from '../store/index'
 
 Vue.use(Router)
 
@@ -69,6 +71,22 @@ const router = new Router({
       component: UserProfile,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: '/:username/favorite',
+      name: 'favorite',
+      component: Favorite,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/:username/:id',
+      name: 'details',
+      component: PostDetails,
+      meta: {
+        requiresAuth: false
       }
     }
   ]
