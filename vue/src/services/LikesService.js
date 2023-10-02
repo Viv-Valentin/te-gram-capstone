@@ -10,6 +10,6 @@ export default {
     },
     deleteFavorite(username, postId){
         return axios.delete("/" + username + "/" + postId);
-    }
-
+    },
+   
 }

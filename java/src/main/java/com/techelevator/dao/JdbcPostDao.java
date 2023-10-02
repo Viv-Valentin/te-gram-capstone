@@ -74,15 +74,19 @@ public class JdbcPostDao implements PostDao {
     public Boolean addFavorite(String username, Post post) {
         String sql = "INSERT INTO likes (username, post_id) " +
                 "VALUES (?, ?) RETURNING post_id";
-        Integer postId = jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
-        post.setPostId(postId);
+        try {
+            Integer postId = jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
+            post.setPostId(postId);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new ResourceAccessException("Unable to connect to server or database");
+        }
         return true;
     }
 
-    public Boolean searchFavoriteByPostId(int postId){
-        String sql = "SELECT like_id from likes WHERE post_id = ?";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, postId);
+    public boolean searchFavoriteByPostId(int postId, String username){
+        String sql = "SELECT like_id from likes WHERE post_id = ? AND username ILIKE ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, postId, username);
         return results.next();
     }
 
@@ -95,18 +99,12 @@ public class JdbcPostDao implements PostDao {
         return numOfRows;
     }
 
-//    public Boolean deleteFavorite (String username, Post post) {
-//        String sql = "Delete from likes WHERE post_id =?;";
-//     int rowAffected = jdbcTemplate.update(sql, post.getPostId());
-//     if (rowsAffected > 0) { return true; }
-//     else { return false;}
-//}
     @Override
     public List<Post> findFavoriteByUsername(String username) {
         List<Post> posts = new ArrayList<>();
-        String sql = "SELECT posts.post_id, posts.username, posts.caption, posts.image_url, posts.created_at, likes.like_id FROM posts " +
-                "JOIN likes ON likes.post_id = posts.post_id " +
-                "WHERE posts.username ILIKE ?;";
+        String sql = "SELECT posts.post_id, posts.username, posts.caption, posts.image_url, posts.created_at FROM likes " +
+                "JOIN posts ON likes.post_id = posts.post_id " +
+                "WHERE likes.username ILIKE ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()) {

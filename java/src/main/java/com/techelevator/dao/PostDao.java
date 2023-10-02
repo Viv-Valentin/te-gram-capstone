@@ -11,4 +11,5 @@ public interface PostDao {
     int deleteFavorite(int postId);
     List<Post> findPhotosByUsername(String username);
     List<Post> findFavoriteByUsername(String username);
+    boolean searchFavoriteByPostId(int postId, String username);
 }

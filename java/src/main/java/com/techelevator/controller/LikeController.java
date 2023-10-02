@@ -35,12 +35,11 @@ public class LikeController {
 //
 //    }
 
-
     // add favorite photo
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
-    public boolean addFavorite(@PathVariable("username") Principal principal, Post post) {
-        String username = principal.getName();
+    public boolean addFavorite(@PathVariable("username") String username, @RequestBody Post post) {
+    //    String username = principal.getName();
         postDao.addFavorite(username, post);
         return true;
         //TODO do a try block here
