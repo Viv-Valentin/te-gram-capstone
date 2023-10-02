@@ -47,31 +47,31 @@ public class AccountController {
         return postDao.findPhotosByUsername(username);
     }
 
-    // add favorite photo
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
-    public boolean addFavorite(@PathVariable("username") Principal principal, Post post) {
-        String username = principal.getName();
-        postDao.addFavorite(username, post);
-        return true;
-        //TODO do a try block here
-    }
-
-    // delete favorite photo
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
-    public boolean deleteFavorite(@PathVariable("username") Principal principal, Post post) {
-        String username = principal.getName();
-        postDao.deleteFavorite(username, post);
-        return true;
-        //TODO do a try block here
-    }
-
-    // display favorite photos
-    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.GET)
-    public List<Post> getFavorite(@PathVariable("username") String username) {
-        return postDao.findFavoriteByUsername(username);
-    }
+//    // add favorite photo
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
+//    public boolean addFavorite(@PathVariable("username") Principal principal, Post post) {
+//        String username = principal.getName();
+//        postDao.addFavorite(username, post);
+//        return true;
+//        //TODO do a try block here
+//    }
+//
+//    // delete favorite photo
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
+//    public boolean deleteFavorite(@PathVariable("username") Principal principal, Post post) {
+//        String username = principal.getName();
+//        postDao.deleteFavorite(post.getPostId());
+//        return true;
+//        //TODO do a try block here
+//    }
+//
+//    // display favorite photos
+//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.GET)
+//    public List<Post> getFavorite(@PathVariable("username") String username) {
+//        return postDao.findFavoriteByUsername(username);
+//    }
 
     // view photo post in full detail
     @ResponseStatus(HttpStatus.NOT_FOUND)

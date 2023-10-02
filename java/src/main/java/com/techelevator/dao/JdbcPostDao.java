@@ -79,17 +79,28 @@ public class JdbcPostDao implements PostDao {
         return true;
     }
 
-    @Override
-    public Boolean deleteFavorite(String username, Post post) {
-        String sql = "DELETE FROM likes WHERE post_id = ?;";
-        jdbcTemplate.update(sql, post.getPostId());
-        return true;
+    public Boolean searchFavoriteByPostId(int postId){
+        String sql = "SELECT like_id from likes WHERE post_id = ?";
 
-//        restTemplate.delete("http://localhost:8080/" + username + "/" + post.getPostId());
-//        return true;
-
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, postId);
+        return results.next();
     }
 
+    @Override
+    public int deleteFavorite(int postId) {
+        int numOfRows = 0;
+        String sql = "DELETE FROM likes WHERE post_id = ?;";
+        numOfRows = jdbcTemplate.update(sql, postId);
+
+        return numOfRows;
+    }
+
+//    public Boolean deleteFavorite (String username, Post post) {
+//        String sql = "Delete from likes WHERE post_id =?;";
+//     int rowAffected = jdbcTemplate.update(sql, post.getPostId());
+//     if (rowsAffected > 0) { return true; }
+//     else { return false;}
+//}
     @Override
     public List<Post> findFavoriteByUsername(String username) {
         List<Post> posts = new ArrayList<>();

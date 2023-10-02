@@ -8,7 +8,7 @@ public interface PostDao {
     List<Post> getFeed(String username);
     Post findPostById(int postId);
     Boolean addFavorite(String username, Post post);
-    Boolean deleteFavorite(String username, Post post);
+    int deleteFavorite(int postId);
     List<Post> findPhotosByUsername(String username);
     List<Post> findFavoriteByUsername(String username);
 }
