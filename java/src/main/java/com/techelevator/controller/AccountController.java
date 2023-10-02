@@ -31,6 +31,7 @@ public class AccountController {
         postDao.addPost(principal.getName(), post.getCaption(), post.getImgURL());
         System.out.println(post);
         return true;
+        //TODO do a try block here
     }
 
     // show public photo feed
@@ -47,18 +48,23 @@ public class AccountController {
     }
 
     // add favorite photo
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
-    public Post addFavorite(@PathVariable("username") Principal principal, Post post) {
+    public boolean addFavorite(@PathVariable("username") Principal principal, Post post) {
         String username = principal.getName();
-        return postDao.addFavorite(username, post);
+        postDao.addFavorite(username, post);
+        return true;
+        //TODO do a try block here
     }
 
     // delete favorite photo
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
-    public Post deleteFavorite(@PathVariable("username") Principal principal, Post post) {
+    public boolean deleteFavorite(@PathVariable("username") Principal principal, Post post) {
         String username = principal.getName();
-        return postDao.deleteFavorite(username, post);
+        postDao.deleteFavorite(username, post);
+        return true;
+        //TODO do a try block here
     }
 
     // display favorite photos

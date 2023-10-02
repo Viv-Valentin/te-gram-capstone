@@ -47,7 +47,7 @@ public class JdbcPostDao implements PostDao {
     public Post findPostById(int postId) {
         Post post = null;
         String sql = "SELECT * FROM posts WHERE post_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, postId);
         if (results.next()) {
            post = mapRowToPost(results);
         }
@@ -71,19 +71,19 @@ public class JdbcPostDao implements PostDao {
     }
 
     @Override
-    public Post addFavorite(String username, Post post) {
+    public Boolean addFavorite(String username, Post post) {
         String sql = "INSERT INTO likes (username, post_id) " +
                 "VALUES (?, ?) RETURNING post_id";
         Integer postId = jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
         post.setPostId(postId);
-        return post;
+        return true;
     }
 
     @Override
-    public Post deleteFavorite(String username, Post post) {
+    public Boolean deleteFavorite(String username, Post post) {
         String sql = "DELETE FROM likes WHERE post_id = ?;";
         jdbcTemplate.update(sql, post.getPostId());
-        return post;
+        return true;
 
 //        restTemplate.delete("http://localhost:8080/" + username + "/" + post.getPostId());
 //        return true;
