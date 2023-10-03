@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.PostDao;
@@ -47,36 +48,17 @@ public class AccountController {
         return postDao.findPhotosByUsername(username);
     }
 
-//    // add favorite photo
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
-//    public boolean addFavorite(@PathVariable("username") Principal principal, Post post) {
-//        String username = principal.getName();
-//        postDao.addFavorite(username, post);
-//        return true;
-//        //TODO do a try block here
-//    }
-//
-//    // delete favorite photo
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
-//    public boolean deleteFavorite(@PathVariable("username") Principal principal, Post post) {
-//        String username = principal.getName();
-//        postDao.deleteFavorite(post.getPostId());
-//        return true;
-//        //TODO do a try block here
-//    }
-//
-//    // display favorite photos
-//    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.GET)
-//    public List<Post> getFavorite(@PathVariable("username") String username) {
-//        return postDao.findFavoriteByUsername(username);
-//    }
-
-    // view photo post in full detail
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @RequestMapping(path = "/{username}/{id}", method = RequestMethod.GET)
-    public Post getPost(@PathVariable("id") int postId) {
-        return postDao.findPostById(postId); // we'll need this to get a single post and see it's full details
+    @RequestMapping(path = "/{username}/{post_id}", method = RequestMethod.GET)
+    public Post getPost(@Valid @PathVariable("username") String username, @PathVariable("post_id") int postId) {
+        Post post = postDao.findPostById(postId);
+        System.out.println(post);
+        if (post != null) {
+             new ResponseEntity<>(post, HttpStatus.OK);
+        }
+        else {
+             new ResponseEntity<>(post, HttpStatus.NOT_FOUND);
+        }
+        System.out.println(post);
+        return post;
     }
 }

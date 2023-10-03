@@ -7,7 +7,7 @@
           v-bind:to="{ name: 'username', params: { username: post.username }}">{{ post.username }}</router-link>
         <img v-bind:src="post.imgURL" />
         <div class="caption">{{ post.caption }}</div>
-        <router-link v-bind:to="{ name: 'details', params: { username: post.username, id: post.postId }}">LINK TO POST</router-link>
+        <router-link v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">LINK TO POST</router-link>
       </div>
     </div>
   </div>

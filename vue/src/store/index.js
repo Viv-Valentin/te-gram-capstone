@@ -37,7 +37,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    // SET_LIKE_STATUS(state, payload) {
+    //   payload.post.like = payload.value;
+    // }
 
     // it's an option to add on to these mutations, delete, set, 
     // look more into this with other examples
