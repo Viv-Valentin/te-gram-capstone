@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.PostDao;
-import com.techelevator.dao.UserDao;
 import com.techelevator.model.Post;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -51,14 +50,12 @@ public class AccountController {
     @RequestMapping(path = "/{username}/{post_id}", method = RequestMethod.GET)
     public Post getPost(@Valid @PathVariable("username") String username, @PathVariable("post_id") int postId) {
         Post post = postDao.findPostById(postId);
-        System.out.println(post);
         if (post != null) {
              new ResponseEntity<>(post, HttpStatus.OK);
         }
         else {
              new ResponseEntity<>(post, HttpStatus.NOT_FOUND);
         }
-        System.out.println(post);
         return post;
     }
 }

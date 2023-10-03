@@ -3,11 +3,12 @@
     <h1>Home</h1>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
-        <router-link class="username"
-          v-bind:to="{ name: 'username', params: { username: post.username }}">{{ post.username }}</router-link>
+        <div class="username">
+          <router-link v-bind:to="{ name: 'username', params: { username: post.username }}">{{ post.username }}</router-link>
+        </div>
         <img v-bind:src="post.imgURL" />
         <div class="caption">{{ post.caption }}</div>
-        <router-link v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">LINK TO POST</router-link>
+        <router-link class="post-link" v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">LINK TO POST</router-link>
       </div>
     </div>
   </div>

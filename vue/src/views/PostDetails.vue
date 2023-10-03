@@ -1,13 +1,10 @@
 <template>
   <div class="post-details">
-    <div class="username">{{ this.$route.params }}</div>
+    <div class="username">{{ post.username }}</div>
     <img v-bind:src="post.imgURL" />
     <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-      <button
-        v-bind:class="{ unlike: post.like, like: !post.like }"
-        v-on:click="onLikeChange(post)"
-      >
+      <button v-bind:class="{ unlike: post.like, like: !post.like }" v-on:click="onLikeChange(post)">
         {{ post.like === false ? "Like" : "Unlike" }}
       </button>
     </div>
@@ -28,7 +25,7 @@ export default {
   methods: {
     onLikeChange() {
       this.username = this.$route.params.username;
-      this.postId = this.$route.params.postId; // wont work bc params doesn't have postId! :zany_face:
+      this.postId = this.$route.params.postId;
 
       likesService.getLikes(this.username).then((response) => {
         if (response.data.includes(this.postId)) {
@@ -46,12 +43,9 @@ export default {
       });
     },
   },
-  // setLike(value) {
-  //   this.$store.commit("SET_READ_STATUS", { post: this.post, value: value });
-  // },
   created() {
     this.username = this.$route.params.username;
-    this.postId = this.$route.params.postId; // also wont work bc params doesn't have postId! :zany_face:
+    this.postId = this.$route.params.postId;
 
     postService
       .getPost(this.username, this.postId)
@@ -62,7 +56,7 @@ export default {
       .catch((error) => {
         console.log(this.$route.params.username);
         console.log(this.$route.params.postId);
-        
+
         console.error("Error fetching data!!!:", error);
       });
   },
@@ -70,4 +64,16 @@ export default {
 </script>
 
 <style>
+.post-details {
+  width: 600px;
+  background: rgba(255, 255,255, 0.8);
+  padding: 1em;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 5em auto;
+}
+
+.post-details img{
+  width: 100%;
+}
 </style>

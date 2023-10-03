@@ -75,7 +75,7 @@ export default {
 <style>
 #add-post {
   margin: 5em auto;
-  
+  text-align: center;
 }
 
 .caption-input label {

@@ -65,12 +65,13 @@ export default {
 body {
   background: url("assets/LoginBackground.jpg") #fff center no-repeat fixed;
   background-size: cover;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Avenir', 'Helvetica', Arial, sans-serif;
   text-align: left;
   margin: 0;
+  color: #4D565E;
 }
 
-div {
+h1 {
  text-align: center;
 }
 
@@ -102,5 +103,26 @@ a:hover{
 .success{
   color: #2B4F60;
   margin-bottom: 2em;
+}
+
+.username {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.username:before {
+  color: #2B4F60;
+  content: '@';
+}
+
+.caption {
+  padding: 15px 10px;
+}
+
+.post-link {
+  display: block;
+  border-top: 1px solid #DAE8F2;
+  margin: 0;
+  padding: 10px;
 }
 </style>
