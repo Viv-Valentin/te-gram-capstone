@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+    <h2>Connect with your fellow Tech Elevator alumni here!
+        Upload a photo, like a post, or comment to start connecting!
+    </h2>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
         <div class="username">
@@ -8,7 +11,7 @@
         </div>
         <img v-bind:src="post.imgURL" />
         <div class="caption">{{ post.caption }}</div>
-        <router-link class="post-link" v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">LINK TO POST</router-link>
+        <router-link class="post-link" v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">Read more</router-link>
       </div>
     </div>
   </div>

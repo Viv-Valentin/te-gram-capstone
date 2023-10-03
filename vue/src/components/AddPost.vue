@@ -9,7 +9,17 @@
         <img v-bind:src="post.imgURL" />
         <div class="caption-input">
           <label for="caption">Caption:</label>
-          <textarea id="caption" v-model="post.caption"></textarea>
+          <textarea
+              v-model="post.caption" 
+              placeholder="Type your caption here!" 
+              name="" 
+              maxlength="500" 
+              cols="30" 
+              rows="10"  id="caption"
+              ></textarea>
+          <span id="caption-counter">{{ caption.length }} / 500</span>
+          //TODO try the counter again!
+          
         </div>
         <div class="save-input">
           <button>Post</button>
@@ -27,6 +37,7 @@ export default {
   data() {
     return {
       myWidget: {},
+      caption: '',
       post: {
         username: this.$store.state.user.username,
         caption: "",
@@ -82,43 +93,48 @@ export default {
   display: block;
 }
 
-.new-post{
+textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 300px;
+}
+
+.new-post {
   width: 600px;
-  background: rgba(255, 255,255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 1em;
   border-radius: 5px;
   box-sizing: border-box;
   margin: auto;
-
 }
 
-.new-post img{
-    width: 100%;
-
+.new-post img {
+  width: 100%;
 }
 
-.new-post textarea{
-    width: 100%;
-    height: 7em;
+.new-post textarea {
+  width: 100%;
+  height: 7em;
 }
 
-.upload-input{
-    margin: 4em;
+.upload-input {
+  margin: 4em;
 }
 
-.upload-input input, button{
-   text-decoration: none;
-   color: white;
-   margin: 1em;
-   background-color:  #2B4F60;
-   padding: 10px 15px;
-   border-radius: 5px;
-   border: 0;
-   text-transform: uppercase;
-  
+.upload-input input,
+button {
+  text-decoration: none;
+  color: white;
+  margin: 1em;
+  background-color: #2b4f60;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 0;
+  text-transform: uppercase;
 }
 
-.upload-input input:hover, button:hover{
-background-color: #00ADEE
+.upload-input input:hover,
+button:hover {
+  background-color: #00adee;
 }
 </style>

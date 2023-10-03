@@ -8,7 +8,9 @@
       <ul>
         <li><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link></li>
         <li><router-link  v-bind:to="{ name: 'post' }" v-if="$store.state.token != ''">Post</router-link></li>
+        <li><router-link v-bind:to="{ name: 'favorite', params: {username : $store.state.user.username} }" v-if="$store.state.token != ''">Favorites</router-link></li>
         <li><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
+        
       </ul>
       </div>
     </div>
@@ -56,7 +58,6 @@ export default {
    background-color:    #00ADEE
 }
 
-
 .logo img {
   max-height: 50px;
   padding: 1em;
@@ -73,6 +74,12 @@ body {
 
 h1 {
  text-align: center;
+ margin: 2em auto 0 auto;
+}
+h2{
+  text-align: center;
+  margin: 2em 1em 3em 1em;
+  font-weight: normal;
 }
 
 label {
@@ -97,8 +104,6 @@ a:hover{
 .fail{
   color: #FF6359;
   margin-bottom: 2em;
-
-
 }
 .success{
   color: #2B4F60;
@@ -117,6 +122,7 @@ a:hover{
 
 .caption {
   padding: 15px 10px;
+  line-height: 150%;
 }
 
 .post-link {
@@ -125,4 +131,8 @@ a:hover{
   margin: 0;
   padding: 10px;
 }
+
+/* #app > div:nth-child(2) {
+margin: 5em auto;
+} */
 </style>

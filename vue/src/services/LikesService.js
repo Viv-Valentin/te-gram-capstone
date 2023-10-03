@@ -6,7 +6,7 @@ export default {
         return axios.get("/" + username + "/favorite");
     },
     addFavorite(username, postId){
-        return axios.post("/" + username + "/" + postId);
+        return axios.post("/" + username + "/" + postId, postId);
     },
     deleteFavorite(username, postId){
         return axios.delete("/" + username + "/" + postId);

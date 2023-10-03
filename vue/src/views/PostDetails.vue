@@ -4,9 +4,9 @@
     <img v-bind:src="post.imgURL" />
     <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-      <button v-bind:class="{ unlike: post.like, like: !post.like }" v-on:click="onLikeChange(post)">
-        {{ post.like === false ? "Like" : "Unlike" }}
-      </button>
+        <button class="like" v-on:click.prevent="like()" >Like</button>
+        <button class="unlike" v-on:click.prevent="unlike()" >Unlike</button>
+
     </div>
   </div>
 </template>
@@ -19,30 +19,35 @@ export default {
   name: "post-details",
   data() {
     return {
-      post: [],
+      post: []
+      // likeUnlikeToggle: false
     };
   },
+
   methods: {
-    onLikeChange() {
+    like() {
       this.username = this.$route.params.username;
       this.postId = this.$route.params.postId;
-
-      likesService.getLikes(this.username).then((response) => {
-        if (response.data.includes(this.postId)) {
-          likesService
-            .deleteFavorite(this.username, this.postId)
-            .then((response) => {
-              this.posts = response.data;
-            }),
-            likesService
-              .addFavorite(this.username, this.postId)
-              .then((response) => {
-                this.posts = response.data;
-              });
-        }
+      likesService.addFavorite(this.username, this.postId).then((response) => {
+        this.posts = response.data;
       });
     },
+
+    unlike() {
+      this.username = this.$route.params.username;
+      this.postId = this.$route.params.postId;
+      likesService
+        .deleteFavorite(this.username, this.postId)
+        .then((response) => {
+          if(response.status === 200){
+            this.posts = response.data;
+            console.log("Removed from Favorites like/Unliked");
+          }
+          
+        });
+    },
   },
+
   created() {
     this.username = this.$route.params.username;
     this.postId = this.$route.params.postId;
@@ -59,6 +64,14 @@ export default {
 
         console.error("Error fetching data!!!:", error);
       });
+
+    // likesService.getLikes(this.username).then((response) => {
+    //   this.posts = response.data;
+    //   console.log("Data for likes fetched successfully!:", response.data);
+    // })
+    // .catch((error) => {
+    //   console.error("Error getting this data for likes!!!:", error);
+    // })
   },
 };
 </script>
@@ -66,14 +79,14 @@ export default {
 <style>
 .post-details {
   width: 600px;
-  background: rgba(255, 255,255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 1em;
   border-radius: 5px;
   box-sizing: border-box;
   margin: 5em auto;
 }
 
-.post-details img{
+.post-details img {
   width: 100%;
 }
 </style>
