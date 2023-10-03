@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     
     getFeed() {
-        return axios.get("/")
+        return axios.get("/");
     },
     
     addPost(post) {
@@ -11,7 +11,11 @@ export default {
     },
 
     getPosts(username){
-        return axios.get("/" + username)
+        return axios.get("/" + username);
+    },
+
+    getPost(username, postId) {
+        return axios.get("/" + username + "/" + postId);
     }
 
 }

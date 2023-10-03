@@ -16,22 +16,21 @@
 
 <script>
 import likesService from '../services/LikesService';
+import postService from '../services/PostService';
 
 
 export default {
 name: "post-details",
  data() {
     return {
-      props: {
-        post: Object
-    },
       post: [],
     };
   },
   methods: {
       onLikeChange() {
       this.username = this.$route.params.username;
-      this.postId = this.$route.params.postId;
+      this.postId = this.$route.params.postId; // wont work bc params doesn't have postId! :zany_face:
+
       likesService.getLikes(this.username).then((response) => {
         if (this.postId === response.data) {
           likesService.deleteFavorite(this.username, this.postId).then((response) => {
@@ -42,6 +41,16 @@ name: "post-details",
       })}
     })
     }
+  },
+  created() {
+    this.username = this.$route.params.username;
+    this.postId = this.$route.params; // also wont work bc params doesn't have postId! :zany_face:
+    
+    postService.getPost(this.username, this.postId).then(
+      response => {
+        this.post = response.data;
+      }
+    )
   }
 };
 
