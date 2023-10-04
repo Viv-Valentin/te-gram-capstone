@@ -29,7 +29,7 @@ export default {
       this.username = this.$route.params.username;
       this.postId = this.$route.params.postId;
       likesService.addFavorite(this.username, this.postId).then((response) => {
-        this.posts = response.data;
+        this.post = response.data;
       });
     },
 
@@ -40,7 +40,7 @@ export default {
         .deleteFavorite(this.username, this.postId)
         .then((response) => {
           if(response.status === 200){
-            this.posts = response.data;
+            this.post = response.data;
             console.log("Removed from Favorites like/Unliked");
           }
           
