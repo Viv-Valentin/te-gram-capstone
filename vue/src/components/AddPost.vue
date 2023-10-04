@@ -17,9 +17,8 @@
               cols="30" 
               rows="10"  id="caption"
               ></textarea>
-          <span id="caption-counter">{{ caption.length }} / 500</span>
-          //TODO try the counter again!
-          
+          <span id="caption-counter">{{ post.caption.length }} / 500</span>
+      
         </div>
         <div class="save-input">
           <button>Post</button>

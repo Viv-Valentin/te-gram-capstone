@@ -1,6 +1,6 @@
 <template>
   <div class="profile-feed">
-    <h1>{{ username }}</h1>
+    <h1>{{ username }}'s Profile</h1>
     <div class="user-feed">
     <div class="user-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
       <img v-bind:src="post.imgURL" />

@@ -66,4 +66,13 @@ export default {
   height: 300px;
   object-fit: cover;
 }
+
+.home .caption{
+  height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
 </style>
