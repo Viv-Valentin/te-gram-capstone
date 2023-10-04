@@ -71,13 +71,12 @@ public class JdbcPostDao implements PostDao {
     }
 
     @Override
-    public Boolean addFavorite(String username, Post post) {
+    public Boolean addFavorite(String username, int postId) {
+        Post post = null;
         String sql = "INSERT INTO likes (username, post_id) " +
                 "VALUES (?, ?) RETURNING post_id";
         try {
-            Integer postId = jdbcTemplate.queryForObject(sql, Integer.class, username, post.getPostId());
-            post.setPostId(postId);
-
+            jdbcTemplate.queryForObject(sql, Integer.class, username, postId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new ResourceAccessException("Unable to connect to server or database");
         }
@@ -91,12 +90,9 @@ public class JdbcPostDao implements PostDao {
     }
 
     @Override
-    public int deleteFavorite(int postId) {
-        int numOfRows = 0;
+    public void deleteFavorite(String username, int postId) {
         String sql = "DELETE FROM likes WHERE post_id = ?;";
-        numOfRows = jdbcTemplate.update(sql, postId);
-
-        return numOfRows;
+        jdbcTemplate.update(sql, postId);
     }
 
     @Override

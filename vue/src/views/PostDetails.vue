@@ -65,13 +65,13 @@ export default {
         console.error("Error fetching data!!!:", error);
       });
 
-    // likesService.getLikes(this.username).then((response) => {
-    //   this.posts = response.data;
-    //   console.log("Data for likes fetched successfully!:", response.data);
-    // })
-    // .catch((error) => {
-    //   console.error("Error getting this data for likes!!!:", error);
-    // })
+    likesService.getLikes(this.username).then((response) => {
+      this.posts = response.data;
+      console.log("Data for likes fetched successfully!:", response.data);
+    })
+    .catch((error) => {
+      console.error("Error getting this data for likes!!!:", error);
+    })
   },
 };
 </script>

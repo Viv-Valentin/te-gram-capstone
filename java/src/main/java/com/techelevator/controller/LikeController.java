@@ -37,20 +37,20 @@ public class LikeController {
 
     // add favorite photo
 //    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.POST)
-    public boolean addFavorite(@PathVariable("username") String username, @RequestBody Post post) {
-    //    String username = principal.getName();
-        postDao.addFavorite(username, post);
+    @RequestMapping(path = "/{username}/{postId}", method = RequestMethod.POST)
+    public boolean addFavorite(@PathVariable("username") String username, @PathVariable("postId") int postId, Principal principal) {
+        username = principal.getName();
+        postDao.addFavorite(username, postId);
         return true;
         //TODO do a try block here
     }
 
     // delete favorite photo
 //    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/{username}/favorite", method = RequestMethod.DELETE)
-    public boolean deleteFavorite(@PathVariable("username") String username, @RequestBody Post post) {
-//        String username = principal.getName();
-        postDao.deleteFavorite(post.getPostId());
+    @RequestMapping(path = "/{username}/{postId}", method = RequestMethod.DELETE)
+    public boolean deleteFavorite(@PathVariable("username") String username, @PathVariable("postId") int postId, Principal principal) {
+        username = principal.getName();
+        postDao.deleteFavorite(username, postId);
         return true; // this should be just true,
         //TODO do a try block here
     }

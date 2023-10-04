@@ -51,10 +51,10 @@ public class AccountController {
     public Post getPost(@Valid @PathVariable("username") String username, @PathVariable("post_id") int postId) {
         Post post = postDao.findPostById(postId);
         if (post != null) {
-             new ResponseEntity<>(post, HttpStatus.OK);
+            new ResponseEntity<>(post, HttpStatus.OK);
         }
         else {
-             new ResponseEntity<>(post, HttpStatus.NOT_FOUND);
+            new ResponseEntity<>(post, HttpStatus.NOT_FOUND);
         }
         return post;
     }
