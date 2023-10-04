@@ -1,11 +1,11 @@
 <template>
   <div class="post-details">
-    <div class="username">{{ post.username }}</div>
+    <div class="username">{{ this.$route.params.username }}</div>
     <img v-bind:src="post.imgURL" />
     <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-        <button class="like" v-on:click.prevent="like()" v-if="likeUnlikeToggle === false" >Like</button>
-        <button class="unlike" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle === true">Unlike</button>
+      <button class="like" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">Like</button>
+      <button class="unlike" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">Unlike</button>
 
     </div>
   </div>
@@ -20,30 +20,30 @@ export default {
   data() {
     return {
       post: [],
-      likeUnlikeToggle: false
+      likeUnlikeToggle: false,
     };
   },
 
   methods: {
     like() {
-      this.username = this.$route.params.username;
-      this.postId = this.$route.params.postId;
-      likesService.addFavorite(this.username, this.postId).then((response) => {
-        this.post = response.data;
+      this.username = this.$store.state.user.username;
+      likesService.addFavorite(this.username, this.post.postId).then((response) => {
+        if (response.status === 200) {
+          this.likeUnlikeToggle = true;
+          console.log("Added to Favorites");
+        }
       });
     },
 
     unlike() {
-      this.username = this.$route.params.username;
-      this.postId = this.$route.params.postId;
+      this.username = this.$store.state.user.username;
       likesService
-        .deleteFavorite(this.username, this.postId)
+        .deleteFavorite(this.username, this.post.postId)
         .then((response) => {
-          if(response.status === 200){
-            this.post = response.data;
-            console.log("Removed from Favorites like/Unliked");
+          if (response.status === 200) {
+            this.likeUnlikeToggle = false;
+            console.log("Removed from Favorites");
           }
-          
         });
     },
   },
@@ -65,16 +65,18 @@ export default {
         console.error("Error fetching data!!!:", error);
       });
 
-    likesService.getLikes(this.username).then((response) => {
-      this.posts = response.data
-      if (response.data.includes(this.postId)) {
-        this.likeUnlikeToggle = true;
-      }
+    likesService.getLikes(this.$store.state.user.username).then((response) => {
+      this.posts = response.data;
+      this.posts.forEach(post => {
+        if (post.postId === this.postId) {
+          this.likeUnlikeToggle = true;
+        }
+      });
       console.log("Data for likes fetched successfully!:", response.data);
     })
-    .catch((error) => {
-      console.error("Error getting this data for likes!!!:", error);
-    })
+      .catch((error) => {
+        console.error("Error getting this data for likes!!!:", error);
+      })
   },
 };
 </script>
