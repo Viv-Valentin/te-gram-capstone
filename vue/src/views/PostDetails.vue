@@ -4,8 +4,8 @@
     <img v-bind:src="post.imgURL" />
     <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-        <button class="like" v-on:click.prevent="like()" >Like</button>
-        <button class="unlike" v-on:click.prevent="unlike()" >Unlike</button>
+        <button class="like" v-on:click.prevent="like()" v-if="likeUnlikeToggle === false" >Like</button>
+        <button class="unlike" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle === true">Unlike</button>
 
     </div>
   </div>
@@ -19,8 +19,8 @@ export default {
   name: "post-details",
   data() {
     return {
-      post: []
-      // likeUnlikeToggle: false
+      post: [],
+      likeUnlikeToggle: false
     };
   },
 
@@ -66,7 +66,10 @@ export default {
       });
 
     likesService.getLikes(this.username).then((response) => {
-      this.posts = response.data;
+      this.posts = response.data
+      if (response.data.includes(this.postId)) {
+        this.likeUnlikeToggle = true;
+      }
       console.log("Data for likes fetched successfully!:", response.data);
     })
     .catch((error) => {
