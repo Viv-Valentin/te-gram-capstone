@@ -20,7 +20,7 @@ CREATE TABLE posts (
    (START WITH 2001 INCREMENT BY 1),
    username VARCHAR(50),
    caption VARCHAR (500),
-   image_url VARCHAR(100),
+   image_url VARCHAR(200),
    created_at TIMESTAMP,
    CONSTRAINT PK_post PRIMARY KEY (post_id),
    CONSTRAINT FK_posts_users FOREIGN KEY (username) REFERENCES users (username)
