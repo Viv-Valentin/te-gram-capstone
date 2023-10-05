@@ -41,7 +41,7 @@ CREATE TABLE comments (
    (START WITH 4001 INCREMENT BY 1),
    username VARCHAR(50),
    post_id INT,
-   comment VARCHAR (255),
+   comment VARCHAR(255),
    comment_created TIMESTAMP,
    CONSTRAINT PK_comment PRIMARY KEY (comment_id),
    CONSTRAINT FK_comments_users FOREIGN KEY (username) REFERENCES users (username),

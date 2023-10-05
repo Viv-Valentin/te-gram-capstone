@@ -1,4 +1,5 @@
 package com.techelevator.dao;
+import com.techelevator.model.Comment;
 import com.techelevator.model.Post;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -71,8 +72,7 @@ public class JdbcPostDao implements PostDao {
     }
 
     @Override
-    public Boolean addFavorite(String username, int postId) {
-        Post post = null;
+    public void addFavorite(String username, int postId) {
         String sql = "INSERT INTO likes (username, post_id) " +
                 "VALUES (?, ?) RETURNING post_id";
         try {
@@ -80,7 +80,6 @@ public class JdbcPostDao implements PostDao {
         } catch (CannotGetJdbcConnectionException e) {
             throw new ResourceAccessException("Unable to connect to server or database");
         }
-        return true;
     }
 
     public boolean searchFavoriteByPostId(int postId, String username){
@@ -113,6 +112,48 @@ public class JdbcPostDao implements PostDao {
         return posts;
     }
 
+
+    // in the event of implementing comments
+    @Override
+    public boolean addComment(String username, int postId, String comment) {
+        String sql = "INSERT INTO comments (username, post_id, comment, comment_created) " +
+                "VALUES (?, ?, ?, ?);";
+        try {
+            jdbcTemplate.queryForObject(sql, Integer.class, username, postId, comment, LocalDateTime.now());
+        } catch (DataAccessException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean deleteComment(String username, int postId, int commentId) {
+        String sql = "DELETE FROM comments WHERE username = ? AND post_id = ? AND comment_id = ?;";
+        try {
+            jdbcTemplate.update(sql, username, postId, commentId);
+        } catch (DataAccessException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public List<Comment> findCommentByUsername(String username) {
+        List<Comment> comments = new ArrayList<>();
+        String sql = "SELECT comment_id, username, post_id, comment, comment_created FROM comments " +
+                "WHERE username ILIKE ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            while (results.next()) {
+                Comment comment = mapRowToComment(results);
+                comments.add(comment);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new ResourceAccessException("Unable to connect to server or database");
+        }
+        return comments;
+    }
+
     private Post mapRowToPost(SqlRowSet row) {
         Post post = new Post();
         post.setPostId(row.getInt("post_id"));
@@ -121,5 +162,15 @@ public class JdbcPostDao implements PostDao {
         post.setImgURL(row.getString("image_url"));
         post.setTimestamp(row.getTimestamp("created_at").toLocalDateTime());
         return post;
+    }
+
+    private Comment mapRowToComment(SqlRowSet row) {
+        Comment comment = new Comment();
+        comment.setCommentId(row.getInt("comment_id"));
+        comment.setUsername(row.getString("username"));
+        comment.setPostId(row.getInt("post_id"));
+        comment.setComment(row.getString("comment"));
+        comment.setTimestamp(row.getTimestamp("comment_created").toLocalDateTime());
+        return comment;
     }
 }

@@ -1,20 +1,20 @@
 package com.techelevator.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Comment {
     private int commentId;
-    private int userId;
+    private String username;
     private int postId;
     private String comment;
-    private Date timestamp;
+    private LocalDateTime timestamp;
 
     public Comment() {
     }
 
-    public Comment(int commentId, int userId, int postId, String comment, Date timestamp) {
+    public Comment(int commentId, String username, int postId, String comment, LocalDateTime timestamp) {
         this.commentId = commentId;
-        this.userId = userId;
+        this.username = username;
         this.postId = postId;
         this.comment = comment;
         this.timestamp = timestamp;
@@ -28,12 +28,12 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getPostId() {
@@ -52,11 +52,11 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Date getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -64,7 +64,7 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "commentId=" + commentId +
-                ", userId=" + userId +
+                ", username=" + username +
                 ", postId=" + postId +
                 ", comment='" + comment + '\'' +
                 ", timestamp=" + timestamp +

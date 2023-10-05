@@ -47,8 +47,8 @@ public class AccountController {
         return postDao.findPhotosByUsername(username);
     }
 
-    @RequestMapping(path = "/{username}/{post_id}", method = RequestMethod.GET)
-    public Post getPost(@Valid @PathVariable("username") String username, @PathVariable("post_id") int postId) {
+    @RequestMapping(path = "/{username}/{postId}", method = RequestMethod.GET)
+    public Post getPost(@Valid @PathVariable("username") String username, @PathVariable("postId") int postId) {
         Post post = postDao.findPostById(postId);
         if (post != null) {
             new ResponseEntity<>(post, HttpStatus.OK);
