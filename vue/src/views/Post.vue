@@ -1,5 +1,7 @@
 <template>
-    <div id="post">            
+    <div id="post">  
+        <h1>Post Upload</h1>
+        <h2>Get started by clicking on the Upload Photo button! From here you can choose a photo, write your caption, and make a post!</h2>          
         <add-post />
     </div>
 </template>
@@ -22,5 +24,9 @@ export default {
 </script>
 
 <style>
+
+#post{
+    margin: 4em auto;
+}
 
 </style>
