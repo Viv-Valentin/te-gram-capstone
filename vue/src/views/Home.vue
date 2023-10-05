@@ -5,7 +5,7 @@
         Upload a photo, like a post, or comment to start connecting!
     </h2>
     <div id="feed">
-      <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
+      <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.postId">
         <div class="username">
           <router-link v-bind:to="{ name: 'username', params: { username: post.username }}">{{ post.username }}</router-link>
         </div>

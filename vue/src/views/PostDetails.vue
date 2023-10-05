@@ -1,10 +1,13 @@
 <template>
   <div class="post-details">
-    <div class="username">{{ this.$route.params.username }}</div>
+    <div class="username">
+      <router-link v-bind:to="{ name: 'username', params: { username: post.username }}">{{ this.$route.params.username }}</router-link>
+    </div>
     <img v-bind:src="post.imgURL" />
     <div class="likes">
         <button class="like material-icons" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">favorite_border</button>
           <button class="unlike material-icons" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">favorite</button>
+          <!-- span class="counter">{{ counter }}</span -->
     </div>
     <div class="caption">{{ post.caption }}</div>
     
@@ -23,6 +26,7 @@ export default {
     return {
       post: [],
       likeUnlikeToggle: false,
+      // counter: 0
     };
   },
 
@@ -32,6 +36,7 @@ export default {
       likesService.addFavorite(this.username, this.post.postId).then((response) => {
         if (response.status === 200) {
           this.likeUnlikeToggle = true;
+          // this.counter++;
           console.log("Added to Favorites");
         }
       });
@@ -44,6 +49,7 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.likeUnlikeToggle = false;
+            // this.counter--;
             console.log("Removed from Favorites");
           }
         });

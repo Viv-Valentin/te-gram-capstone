@@ -2,8 +2,10 @@
   <div class="favorite">
     <h1>{{ username }}'s Favorite Posts</h1>
     <div class="favorite-feed">
-      <div class="favorite-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
-        <img v-bind:src="post.imgURL" />
+      <div class="favorite-post" v-for="post in posts.slice().reverse()" v-bind:key="post.postId">
+        <router-link v-bind:to="{ name: 'details', params: { username: post.username, postId: post.postId }}">
+          <img v-bind:src="post.imgURL" />
+        </router-link>
       </div>
     </div>
   </div>
@@ -53,6 +55,11 @@ export default {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.favorite-post img:hover {
+  opacity: 0.8;
 }
 
 .favorite-feed {
