@@ -1,6 +1,8 @@
 <template>
   <div class="profile-feed">
     <h1>{{ username }}'s Profile</h1>
+    <h2>Explore the stories and moments captured by {{ username }}!</h2>
+    <nav><router-link v-bind:to="{ name: 'favorite', params: { username: username }}">View Favorite Posts</router-link></nav>
     <div class="user-feed">
     <div class="user-post" v-for="post in posts.slice().reverse()" v-bind:key="post.id">
       <img v-bind:src="post.imgURL" />
@@ -54,5 +56,11 @@ export default {
 
 .profile-feed {
   margin: auto;
+}
+
+.profile-feed nav{
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 2em;
 }
 </style>

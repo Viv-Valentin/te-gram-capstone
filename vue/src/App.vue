@@ -10,15 +10,13 @@
             <router-link
               v-bind:to="{ name: 'home' }"
               v-if="$store.state.token != ''"
-              >Home</router-link
-            >
+              >Home</router-link>
           </li>
           <li>
             <router-link
               v-bind:to="{ name: 'post' }"
               v-if="$store.state.token != ''"
-              >Post</router-link
-            >
+              >Post</router-link>
           </li>
           <li>
             <router-link
@@ -27,15 +25,13 @@
                 params: { username: $store.state.user.username },
               }"
               v-if="$store.state.token != ''"
-              >Favorites</router-link
-            >
+              >My Favorites</router-link>
           </li>
           <li>
             <router-link
               v-bind:to="{ name: 'logout' }"
               v-if="$store.state.token != ''"
-              >Logout</router-link
-            >
+              >Logout</router-link>
           </li>
         </ul>
       </div>
@@ -157,7 +153,5 @@ a:hover {
   padding: 10px;
 }
 
-/* #app > div:nth-child(2) {
-margin: 5em auto;
-} */
+
 </style>

@@ -2,11 +2,14 @@
   <div class="post-details">
     <div class="username">{{ this.$route.params.username }}</div>
     <img v-bind:src="post.imgURL" />
-    <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-      <button class="like material-icons" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">favorite_border</button>
-      <button class="unlike material-icons" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">favorite</button>
+        <button class="like material-icons" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">favorite_border</button>
+          <button class="unlike material-icons" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">favorite</button>
     </div>
+    <div class="caption">{{ post.caption }}</div>
+    
+     
+   
   </div>
 </template>
 
@@ -92,6 +95,27 @@ export default {
 
 .post-details img {
   width: 100%;
+}
+
+.material-icons{
+  background: transparent;
+  color: #4D565E;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.material-icons:hover{
+  background: transparent;
+
+}
+.likes{
+  text-align: left;
+  margin: 10px;
+}
+
+.post-details .caption{
+ padding-top: 0;
 }
 
 </style>
