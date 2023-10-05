@@ -2,7 +2,9 @@
   <div id="app">
     <div id="header">
       <div class="logo">
-        <img src="./assets/FinalLogo.png" alt="TEConnect" />
+        <router-link v-bind:to="{ name: 'home' }">
+          <img src="./assets/FinalLogo.png" alt="TEConnect" />
+        </router-link>
       </div>
       <div id="nav">
         <ul>
@@ -51,6 +53,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   background-color: #fefefe;
   box-shadow: 1px 1px 5px 0 #4d565e;
   position: sticky;
@@ -63,6 +66,10 @@ export default {
   display: flex;
   list-style: none;
   text-transform: uppercase;
+}
+
+#nav ul li {
+  white-space: nowrap;
 }
 
 #nav a {
