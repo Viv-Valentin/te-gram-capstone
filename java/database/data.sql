@@ -1,5 +1,7 @@
 BEGIN TRANSACTION;
 
+SET CLIENT_ENCODING TO 'UTF8';
+
 INSERT INTO users (email,username,password_hash,role) VALUES ('user@mail.com','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (email,username,password_hash,role) VALUES ('admin@mail.com','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (email,username,password_hash,role) VALUES ('viv@mail.com','viv','$2a$10$SkpetsQ1NPbAwC/YQQ3jb..PGCfafOvMMMtqIp3d0DSHoYJ1tMQkG','ROLE_USER');
@@ -14,7 +16,7 @@ INSERT INTO posts (username, caption, image_url, created_at) VALUES ('viv', '�
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('nix', 'I could not get over the view from my latest hike in Washington State.', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1695737780/samples/landscapes/nature-mountains.jpg', '09/23/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('nix', 'Just ordered this dessert and cannot wait to dig right in!', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1695737767/samples/food/dessert.jpg', '09/29/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('maryam', 'Pedaling through life with the wind in my hair and the open road ahead. Join me in this two-wheeled adventure!', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1695737775/samples/people/bicycle.jpg', '09/23/2023');
-INSERT INTO posts (username, caption, image_url, created_at) VALUES ('kay', '🚣 "Kayaking through serene waters, where tranquility meets adventure. 🚣‍♂️', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1695737776/samples/landscapes/beach-boat.jpg', '09/27/2023');
+INSERT INTO posts (username, caption, image_url, created_at) VALUES ('kay', '🚣 Kayaking through serene waters, where tranquility meets adventure. 🚣‍♂️', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1695737776/samples/landscapes/beach-boat.jpg', '09/27/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('viv', 'Beautiful flower field from my local plant nursery', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1696174528/z3hnoqe2bmn9njtb6hti.jpg', '10/01/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('maryam', 'Grooving to the sweet sounds of jazz in the streets.', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1696257363/d19uijsovspxybiydscf.jpg', '09/23/2023');
 INSERT INTO posts (username, caption, image_url, created_at) VALUES ('kay', '🐶 Going to be exploring the great outdoors with my furry adventurers. From the forest trails to the mountain peaks, every step is a new discovery.🌲🏞️ #NatureLovers #AdventureBuddies', 'https://res.cloudinary.com/dfcehgwjs/image/upload/v1696111019/xjx1n1rbkrymwh26x99m.jpg', '10/02/2023');

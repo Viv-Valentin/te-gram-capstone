@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style>
+.favorite {
+  margin-bottom: 5em;
+}
+
 .favorite-feed {
   display: flex;
   justify-content: center;
@@ -36,6 +40,7 @@ export default {
   margin: 0 auto 5em auto;
   gap: 2em;
 }
+
 .favorite-post {
   width: 400px;
   background: rgba(255, 255,255, 0.8);

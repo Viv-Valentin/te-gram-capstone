@@ -4,9 +4,8 @@
     <img v-bind:src="post.imgURL" />
     <div class="caption">{{ post.caption }}</div>
     <div class="likes">
-      <button class="like" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">Like</button>
-      <button class="unlike" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">Unlike</button>
-
+      <button class="like material-icons" v-on:click.prevent="like()" v-if="!likeUnlikeToggle">favorite_border</button>
+      <button class="unlike material-icons" v-on:click.prevent="unlike()" v-if="likeUnlikeToggle">favorite</button>
     </div>
   </div>
 </template>
@@ -94,4 +93,5 @@ export default {
 .post-details img {
   width: 100%;
 }
+
 </style>
