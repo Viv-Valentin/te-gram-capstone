@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Home</h1>
     <h2>Connect with your fellow Tech Elevator alumni here!
-        Upload a photo, like a post, or comment to start connecting!
+        Upload a photo and like a post start connecting!
     </h2>
     <div id="feed">
       <div class="feed-post" v-for="post in posts.slice().reverse()" v-bind:key="post.postId">
