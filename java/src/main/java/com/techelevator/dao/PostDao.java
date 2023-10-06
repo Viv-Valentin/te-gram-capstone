@@ -20,4 +20,5 @@ public interface PostDao {
     // in the event of implementing comments
     boolean deleteComment(String username, int postId, int commentId);
     List<Comment> findCommentByUsername(String username);
+    List<Comment> findCommentByPostId(int postId);
 }

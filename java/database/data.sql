@@ -33,10 +33,22 @@ INSERT INTO likes (username, post_id) VALUES ('nix', 2008);
 INSERT INTO likes (username, post_id) VALUES ('nix', 2009);
 INSERT INTO likes (username, post_id) VALUES ('maryam', 2010);
 
-INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv', 2002, 'so cute!', '09/25/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2001, 'beauty!', '09/26/2023');
-INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2004, 'pretty!', '09/23/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv', 2002, 'so cute!', '09/25/2023');
 INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2003, 'love it!', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2004, 'pretty!', '09/23/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2005, 'very cool', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2006, 'That is really neat!', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2007, 'love it!', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2008, 'WOW', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv', 2009, 'Cannot wait to see more!', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2001, 'I love this', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('kay', 2002, 'This is very nice', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('nix', 2002, 'whoa this is such a great picture', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('viv', 2004, 'Pretty slick', '03/24/2023');
+INSERT INTO comments (username, post_id, comment, comment_created) VALUES ('maryam', 2005, 'That is super slick!', '03/24/2023');
+
+
 
 
 COMMIT TRANSACTION;

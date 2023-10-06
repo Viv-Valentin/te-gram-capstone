@@ -44,8 +44,8 @@ public class CommentController {
     }
 
     // display comments
-    @RequestMapping(path = "/{username}/comment", method = RequestMethod.GET)
-    public List<Comment> getComments(@PathVariable("username") String username) {
-        return postDao.findCommentByUsername(username);
+    @RequestMapping(path = "/{username}/{postId}/comment", method = RequestMethod.GET)
+    public List<Comment> getComments(@PathVariable("username") String username, @PathVariable("postId") int postId) {
+        return postDao.findCommentByPostId(postId);
     }
 }

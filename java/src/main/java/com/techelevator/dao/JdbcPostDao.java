@@ -154,6 +154,21 @@ public class JdbcPostDao implements PostDao {
         return comments;
     }
 
+    @Override
+    public List<Comment> findCommentByPostId(int postId){
+        List<Comment> comments = new ArrayList<>();
+        String sql = "SELECT * FROM comments WHERE post_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, postId);
+        while (results.next()) {
+            Comment comment = mapRowToComment(results);
+            comments.add(comment);
+        }
+        return comments;
+    }
+
+
+
     private Post mapRowToPost(SqlRowSet row) {
         Post post = new Post();
         post.setPostId(row.getInt("post_id"));

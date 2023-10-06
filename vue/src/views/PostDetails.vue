@@ -1,7 +1,7 @@
 <template>
   <div class="post-details">
     <div class="username">
-      <router-link v-bind:to="{ name: 'username', params: { username: post.username }}">{{ this.$route.params.username }}</router-link>
+      <router-link v-bind:to="{ name: 'username', params: { username: this.$route.params.username }}">{{ this.$route.params.username }}</router-link>
     </div>
     <img v-bind:src="post.imgURL" />
     <div class="likes">
@@ -11,7 +11,7 @@
     </div>
     <div class="caption">{{ post.caption }}</div>
     
-     
+   
    
   </div>
 </template>
@@ -19,6 +19,8 @@
 <script>
 import likesService from "../services/LikesService";
 import postService from "../services/PostService";
+import postComments from "../components/PostComments.vue";
+
 
 export default {
   name: "post-details",
@@ -26,6 +28,9 @@ export default {
     return {
       post: [],
       likeUnlikeToggle: false,
+      components: {
+        postComments
+      },
       // counter: 0
     };
   },
@@ -84,7 +89,7 @@ export default {
     })
       .catch((error) => {
         console.error("Error getting this data for likes!!!:", error);
-      })
+      });
   },
 };
 </script>

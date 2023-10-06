@@ -9,6 +9,7 @@ import UserProfile from '../views/UserProfile.vue'
 import Favorite from '../views/Favorite.vue'
 import PostDetails from '../views/PostDetails.vue'
 import store from '../store/index'
+import PostComments from '../components/PostComments.vue'
 
 Vue.use(Router)
 
@@ -88,7 +89,16 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: '/:username/:postId/comment',
+      name: 'post-comments',
+      component: PostComments,
+      meta: {
+        requiresAuth: false
+      }
     }
+
   ]
 })
 
